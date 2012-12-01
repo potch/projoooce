@@ -1,21 +1,27 @@
+import functools
 import json
 
 from flask import Flask, Response, abort, request, render_template
 from pinscrape import get_pins
 
 
-
 app = Flask(__name__)
 
 
-def jsonify(o):
-    return Response(json.dumps(o), headers={
-                    'Content-Type': 'application/json' })
+def jsonify(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kw):
+        response = f(*args, **kw)
+        print response
+        return Response(json.dumps(response),
+                        headers={'Content-Type': 'application/json' })
+    return wrapper
 
 
 @app.route("/pins/<user>")
+@jsonify
 def pins(user):
-    return jsonify(get_pins(user))
+    return get_pins(user)
 
 
 if __name__ == "__main__":
