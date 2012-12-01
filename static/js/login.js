@@ -24,8 +24,11 @@ $(document).on('click', '.logged a', function(e) {
     loggedOut();
 });
 
-if (localStorage.user) {
-    loggedIn(localStorage.user);
-} else {
-    $('form').addClass('show');
-}
+$(function() {
+    if (localStorage.user) {
+        loggedIn(localStorage.user);
+        showPane('lookingfor');
+    } else {
+        $('form').addClass('show');
+    }
+});

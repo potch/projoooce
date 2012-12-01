@@ -1,6 +1,6 @@
 var retina = window.devicePixelRatio > 1;
 
-var pinsEl = $('#pins');
+var pinsEl = $('#pins .container');
 
 function escape_(s) {
     if (typeof s === undefined) {

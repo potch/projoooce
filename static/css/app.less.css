@@ -6,6 +6,33 @@ section {
   left: 0;
   background-image: url('/static/img/grain.png');
   background-color: #fff;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+section.moving {
+  -moz-transition-duration: .5s, .5s, .5s;
+  -webkit-transition-duration: .5s, .5s, .5s;
+  transition-duration: .5s, .5s, .5s;
+  -moz-transition-property: -moz-transform, transform, -webkit-transform;
+  -webkit-transition-property: -moz-transform, transform, -webkit-transform;
+  transition-property: -moz-transform, transform, -webkit-transform;
+}
+section.left {
+  -webkit-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+section.right {
+  -webkit-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  transform: translate(100%, 0);
 }
 #login {
   background-color: #bc0c4e;
