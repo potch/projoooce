@@ -33,29 +33,23 @@ function Mortar(numCols, parent) {
 
         img = $(img);
 
-        var goodCol = numCols-1;
+        var col = cols.sort(function(a, b) {
+            return a.y - b.y;
+        })[0];
 
-        for (var i = numCols - 1; i >= 0; i--) {
-            if (cols[i].y < cols[goodCol].y) {
-                goodCol = i;
-            }
-        }
-
-        var col = cols[goodCol];
         img.addClass('pinimg');
         img.attr('width', 192);
         col.el.append(img);
         col.y += img.height();
 
         setTimeout(function() {
-            console.log('barf');
             img.addClass('show');
         }, 0);
 
     };
 }
 
-var mortar = new Mortar(4, document.body);
+var mortar = new Mortar(5, document.body);
 
 $.get('/pins/kkoberger90', function(r) {
     r.forEach(function(i) {
