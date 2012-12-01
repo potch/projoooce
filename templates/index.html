@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>title</title>
-    <link rel='stylesheet' href="/static/css/app.less.css">
+    <title>pinterested</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.less.css') }}">
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,6 +21,7 @@
     </section>
 
     <section id="pins">
+        <div class="who"></div>
         <div class="container"></div>
     </section>
 
@@ -29,8 +30,6 @@
 
     <section id="messages">
     </section>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/static/js/underscore.js"></script>
     <script src="/static/js/login.js"></script>

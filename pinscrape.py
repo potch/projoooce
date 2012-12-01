@@ -16,4 +16,4 @@ def get_pins(user):
         if src not in pins:
             pins.append(src)
 
-    return pins
+    return {'user': user, 'pins': pins}

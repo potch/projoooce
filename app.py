@@ -1,5 +1,6 @@
 import functools
 import json
+import random
 import sys
 
 from flask import Flask, Response, abort, request, render_template
@@ -32,9 +33,21 @@ def jsonify(f):
     return wrapper
 
 
+@app.route('/pins', defaults={'shuffle': True})
 @app.route('/pins/<user>')
 @jsonify
-def pins(user):
+def pins(user=None, shuffle=False):
+    user = 'kkoberger90'
+    if shuffle:
+        users = redis.smembers('users')
+        if users:
+            users = list(users)
+            random.shuffle(users)
+            for naughty_boy in request.values.get('exclude', '').split(','):
+                if naughty_boy in users:
+                    users.remove(naughty_boy)
+            user = users[0]
+    print user  # Nice to know.
     return get_pins(user)
 
 
