@@ -3,7 +3,8 @@ import requests
 
 from pyquery import PyQuery as pq
 
-def getPins(user):
+
+def get_pins(user):
     url = 'http://pinterest.com/%s/pins/' % user
 
     r = requests.get(url)
@@ -17,4 +18,3 @@ def getPins(user):
 
     return pins
 
-print json.dumps(getPins('jenniferkhoo'))
