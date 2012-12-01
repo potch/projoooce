@@ -1,6 +1,4 @@
-import json
 import requests
-
 from pyquery import PyQuery as pq
 
 
@@ -14,10 +12,8 @@ def get_pins(user):
     pins = []
 
     for img in doc('.PinImageImg'):
-        print pq(img).parent().html()
         src = pq(img).attr('src')
         if src not in pins:
             pins.append(src)
 
     return pins
-
