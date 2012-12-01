@@ -14,7 +14,10 @@ def get_pins(user):
     pins = []
 
     for img in doc('.PinImageImg'):
-        pins.append(pq(img).attr('src'))
+        print pq(img).parent().html()
+        src = pq(img).attr('src')
+        if src not in pins:
+            pins.append(src)
 
     return pins
 
