@@ -11,21 +11,44 @@
             margin-bottom: 15px;
             display: block;
             opacity: 0;
+            width: 192px;
             transition: .5s opacity ease-out;
         }
         .pinimg.show {
             opacity: 1;
         }
         .col {
-            margin-top: 15px;
+            margin: 15px 15px 0 0;
             width: 222px;
-            margin-left: 15px;
             float: left;
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 2),
+               screen and (min--moz-device-pixel-ratio: 2),
+               screen and (min-device-pixel-ratio: 2) {
+            .pinimg {
+                width: 96px;
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+            .col {
+                width: 112px;
+                margin: 10px 10px 0 0;
+            }
+        }
+
+        .col:last-child {
+            margin-right: 0;
+        }
+
+        #pins {
+            margin: 0 auto;
         }
 
     </style>
   </head>
   <body>
+    <div id="pins"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/static/js/app.js"></script>
   </body>

@@ -1,3 +1,7 @@
+var retina = window.devicePixelRatio > 1;
+
+var pinsEl = $('#pins');
+
 function loadImg(src) {
     var d = $.Deferred();
     var i = new Image();
@@ -38,9 +42,8 @@ function Mortar(numCols, parent) {
         })[0];
 
         img.addClass('pinimg');
-        img.attr('width', 192);
         col.el.append(img);
-        col.y += img.height();
+        col.y += img.outerHeight();
 
         setTimeout(function() {
             img.addClass('show');
@@ -49,7 +52,17 @@ function Mortar(numCols, parent) {
     };
 }
 
-var mortar = new Mortar(5, document.body);
+var colWidth = retina ? 112 : 240;
+var margin = retina ? 10 : 15;
+
+var numCols = ~~( $(pins).innerWidth() / colWidth );
+numCols = Math.min(6,numCols);
+
+console.log(numCols);
+
+pinsEl.width(numCols * (colWidth + margin));
+
+var mortar = new Mortar(numCols, pinsEl);
 
 $.get('/pins/kkoberger90', function(r) {
     r.forEach(function(i) {
