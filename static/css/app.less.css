@@ -1,4 +1,18 @@
+section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('/static/img/grain.png');
+  background-color: #fff;
+}
+#login {
+  background-color: #bc0c4e;
+  z-index: 1;
+}
 .pinimg {
+  background: #fff;
   padding: 15px;
   -webkit-box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
   -moz-box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
