@@ -1,0 +1,213 @@
+
+// Retina
+@retina: ~'screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2)';
+
+
+// Mixins
+@grain-src: url(../../img/mkt/grain.png);
+.grain() {
+    background-image: @grain-src;
+}
+
+@arrow-src: url(../../img/mkt/arrows/plain.png);
+.arrow() {
+    background: @arrow-src no-repeat;
+}
+
+@arrow-big-src: url(../../img/mkt/arrows/plain-lrg-go.png);
+.arrow-big() {
+    background: @arrow-big-src no-repeat;
+}
+
+.light-text-shadow() {
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.medium-text-shadow() {
+    text-shadow: .5px .5px 0 @text;
+}
+
+.dark-text-shadow() {
+    text-shadow: 0 1px 0 @black;
+}
+
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.transform(@tform) {
+    -webkit-transform: @tform;
+    -moz-transform: @tform;
+    -ms-transform: @tform;
+    -o-transform: @tform;
+    transform: @tform;
+}
+
+.transform-origin(@x, @y) {
+    -moz-transform-origin: @x @y;
+    -webkit-transform-origin: @x @y;
+    -ms-transform-origin: @x @y;
+    -o-transform-origin: @x @y;
+    transform-origin: @x @y;
+}
+
+.transition(@property) {
+    -moz-transition: @property;
+    -webkit-transition: @property;
+    transition: @property;
+}
+
+.transition-property(@property) {
+    -moz-transition-property: @property;
+    -webkit-transition-property: @property;
+    transition-property: @property;
+}
+
+.transition-duration(@duration:2s) {
+    -moz-transition-duration: @duration;
+    -webkit-transition-duration: @duration;
+    transition-duration: @duration;
+}
+
+.transition-delay(@delay:1s) {
+    -moz-transition-delay: @delay;
+    -webkit-transition-delay: @delay;
+    transition-delay: @delay;
+}
+
+.background-size(@size) {
+    -moz-background-size: @size;
+    -wekbkit-background-size: @size;
+    background-size: @size;
+}
+.background-size(@size, @size2) {
+    -moz-background-size: @size, @size2;
+    -wekbkit-background-size: @size, @size2;
+    background-size: @size, @size2;
+}
+
+.box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+.box-shadow(@shadow, @shadow2) {
+    -webkit-box-shadow: @shadow, @shadow2;
+    -moz-box-shadow: @shadow, @shadow2;
+    box-shadow: @shadow, @shadow2;
+}
+.box-shadow(@shadow, @shadow2, @shadow3) {
+    -webkit-box-shadow: @shadow, @shadow2, @shadow3;
+    -moz-box-shadow: @shadow, @shadow2, @shadow3;
+    box-shadow: @shadow, @shadow2, @shadow3;
+}
+
+.text-columns(@count, @gap: 1em) {
+    column-count: @count;
+    -moz-column-count: @count;
+    -webkit-column-count: @count;
+    column-gap: @gap;
+    -moz-column-gap: @gap;
+    -webkit-column-gap: @gap;
+}
+
+.border-box() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Image replacement.
+.hidetext() {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+.animation(@animation) {
+    -webkit-animation: @animation;
+    -moz-animation: @animation;
+    -ms-animation: @animation;
+    animation: @animation;
+}
+
+.gradient(@gradient) {
+    background-image: -webkit-gradient(@gradient);
+    background-image: -webkit-linear-gradient(@gradient);
+    background-image:    -moz-linear-gradient(@gradient);
+    background-image:     -ms-linear-gradient(@gradient);
+    background-image:      -o-linear-gradient(@gradient);
+    background-image:         linear-gradient(@gradient);
+}
+
+.gradient-two-color(@color1, @color2) {
+    background-color: @color2;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(@color1), to(@color2));
+    background-image: -webkit-linear-gradient(@color1, @color2);
+    background-image:    -moz-linear-gradient(@color1, @color2);
+    background-image:     -ms-linear-gradient(@color1, @color2);
+    background-image:      -o-linear-gradient(@color1, @color2);
+    background-image:         linear-gradient(@color1, @color2);
+}
+
+.gradient-two-color-with-image(@color1, @color2, @image) {
+    background: @color2;
+    background: @image, -webkit-gradient(linear, left bottom, left top, from(@color1), to(@color2));
+    background: @image, -webkit-linear-gradient(@color1, @color2);
+    background: @image, -moz-linear-gradient(@color1, @color2);
+    background: @image, -ms-linear-gradient(@color1, @color2);
+    background: @image, -o-linear-gradient(@color1, @color2);
+    background: @image, linear-gradient(@color1, @color2);
+}
+
+.gradient-two-color-with-image(@color1, @color2, @image, @position, @repeat) {
+    background: @color2;
+    background: @image @position @repeat, -webkit-gradient(linear, left bottom, left top, from(@color1), to(@color2));
+    background: @image @position @repeat, -webkit-linear-gradient(@color1, @color2);
+    background: @image @position @repeat, -moz-linear-gradient(@color1, @color2);
+    background: @image @position @repeat, -ms-linear-gradient(@color1, @color2);
+    background: @image @position @repeat, -o-linear-gradient(@color1, @color2);
+    background: @image @position @repeat, linear-gradient(@color1, @color2);
+}
+
+.h-gradient-two-color(@color1, @color2) {
+    // The background-color fallback is bad for opacity gradients.
+    background-color: @color2;
+    background-image: -webkit-gradient(linear, left center, right center, from(@color1), to(@color2));
+    background-image: -webkit-linear-gradient(to right, @color1, @color2);
+    background-image:    -moz-linear-gradient(to right, @color1, @color2);
+    background-image:     -ms-linear-gradient(to right, @color1, @color2);
+    background-image:      -o-linear-gradient(to right, @color1, @color2);
+    background-image:         linear-gradient(to right, @color1, @color2);
+}
+
+// Vertical sprite
+.vsprite(@url, @pos, @spacing, @offset:0) {
+    background: ~'url(@{url}) no-repeat';
+    background-position: 0 (@spacing * @pos * -1 + @offset) + 0px;
+}
+.vsprite-pos(@pos, @spacing, @offset:0) {
+    background-position: 0 (@spacing * @pos * -1 + @offset) + 0px;
+}
+.vsprite-pos-right(@pos, @spacing, @offset:0) {
+    background-position: right (@spacing * @pos * -1 + @offset) + 0px;
+}
+
+// Horizontal sprite
+.hsprite(@url, @pos, @spacing, @offset:0) {
+    background: ~'url(@{url}) no-repeat';
+    background-position: (@spacing * @pos * -1 + @offset) + 0px 0;
+}
+.hsprite-pos(@pos, @spacing, @offset:0) {
+    background-position: (@spacing * @pos * -1 + @offset) + 0px 0;
+}

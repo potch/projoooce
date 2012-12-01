@@ -1,0 +1,45 @@
+.pinimg {
+  padding: 15px;
+  -webkit-box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
+  float: left;
+  margin-bottom: 15px;
+  display: block;
+  opacity: 0;
+  width: 192px;
+  -moz-transition: .5s opacity ease-out, .5s top ease-out;
+  -webkit-transition: .5s opacity ease-out, .5s top ease-out;
+  transition: .5s opacity ease-out, .5s top ease-out;
+}
+.pinimg.show {
+  opacity: 1;
+}
+.col {
+  margin: 15px 15px 0 0;
+  width: 222px;
+  float: left;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
+  .pinimg {
+    width: 96px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  .col {
+    width: 112px;
+    margin: 10px 10px 0 0;
+  }
+}
+.col:last-child {
+  margin-right: 0;
+}
+#pins {
+  margin: 0 auto;
+}
+form {
+  visibility: hidden;
+}
+form.show {
+  visibility: visible;
+}

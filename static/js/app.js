@@ -60,15 +60,13 @@ function Mortar(numCols, parent) {
     };
 }
 
-var colWidth = retina ? 112 : 240;
+var colWidth = retina ? 112 : 222;
 var margin = retina ? 10 : 15;
 
 var numCols = ~~( $(pins).innerWidth() / colWidth );
-numCols = Math.min(6,numCols);
+numCols = Math.min(5, numCols);
 
-console.log(numCols);
-
-pinsEl.width(numCols * (colWidth + margin));
+pinsEl.width(numCols * (colWidth + margin) - margin);
 
 var mortar = new Mortar(numCols, pinsEl);
 

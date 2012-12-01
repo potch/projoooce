@@ -80,7 +80,8 @@ app.add_url_rule('/users/<int:user_id>', view_func=user_view,
 
 
 if __name__ == '__main__':
-    kw = {'debug': True}
+    kw = {'debug': True,
+          'host': '0.0.0.0'}
     try:
         kw['port'] = int(sys.argv[1])
     except (IndexError, ValueError):

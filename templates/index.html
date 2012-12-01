@@ -3,55 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>title</title>
-    <style>
-        .pinimg {
-            padding: 15px;
-            box-shadow: 0px 1px 3px rgba(34, 25, 25, 0.4);
-            float: left;
-            margin-bottom: 15px;
-            display: block;
-            opacity: 0;
-            width: 192px;
-            transition: .5s opacity ease-out;
-        }
-        .pinimg.show {
-            opacity: 1;
-        }
-        .col {
-            margin: 15px 15px 0 0;
-            width: 222px;
-            float: left;
-        }
-        @media screen and (-webkit-min-device-pixel-ratio: 2),
-               screen and (min--moz-device-pixel-ratio: 2),
-               screen and (min-device-pixel-ratio: 2) {
-            .pinimg {
-                width: 96px;
-                padding: 8px;
-                margin-bottom: 10px;
-            }
-            .col {
-                width: 112px;
-                margin: 10px 10px 0 0;
-            }
-        }
+    <link rel='stylesheet' href="/static/css/app.less.css">
 
-        .col:last-child {
-            margin-right: 0;
-        }
-
-        #pins {
-            margin: 0 auto;
-        }
-
-        form {
-            visibility: hidden;
-        }
-        form.show {
-            visibility: visible;
-        }
-
-    </style>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
   <body>
     <form action="/users/" method="post">
