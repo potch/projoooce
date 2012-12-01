@@ -1,10 +1,22 @@
+{% set CSS = [
+    'app.less',
+] -%}
+{% set JS = [
+    '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',
+    'underscore.js',
+    'login.js',
+    'pins.js',
+    'app.js',
+] -%}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>pinterested</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.less.css') }}">
-
+    {%- for stylesheet in CSS %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/' + stylesheet + ('.css' if stylesheet.endswith('.less') else '')) }}">
+    {%- endfor %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
@@ -30,10 +42,9 @@
 
     <section id="messages">
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="/static/js/underscore.js"></script>
-    <script src="/static/js/login.js"></script>
-    <script src="/static/js/pins.js"></script>
-    <script src="/static/js/app.js"></script>
+
+    {%- for script in JS %}
+    <script type="text/javascript" src="{{ script if script.startswith(('//', 'http')) else url_for('static', filename='js/' + script) }}"></script>
+    {%- endfor %}
   </body>
 </html>
