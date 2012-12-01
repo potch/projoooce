@@ -9,12 +9,28 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
   <body>
-    <form action="/users/" method="post">
-        <input type="text" name="user">
-        <input type="password" name="pass">
-        <button>Find my soulmate</button>
-    </form>
-    <div id="pins"></div>
+    <section id="login">
+        <form action="/users/" method="post">
+            <input type="text" name="user">
+            <input type="password" name="pass">
+            <button>Find my soulmate</button>
+        </form>
+    </section>
+
+    <section id="lookingfor">
+    </section>
+
+    <section id="teasers">
+        <div id="pins"></div>
+    </section>
+
+    <section id="matches">
+    </section>
+
+    <section id="messages">
+    </section>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/static/js/app.js"></script>
   </body>
