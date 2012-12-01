@@ -29,7 +29,7 @@ def pins(user):
     return get_pins(user)
 
 
-@app.route("/")
+@app.route('/')
 def index():
     return render_template('index.html')
 
