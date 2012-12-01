@@ -2,6 +2,14 @@ var retina = window.devicePixelRatio > 1;
 
 var pinsEl = $('#pins');
 
+function escape_(s) {
+    if (typeof s === undefined) {
+        return;
+    }
+    return s.replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;')
+            .replace(/'/g, '&#39;').replace(/"/g, '&#34;');
+}
+
 function loadImg(src) {
     var d = $.Deferred();
     var i = new Image();
@@ -69,3 +77,34 @@ $.get('/pins/kkoberger90', function(r) {
         loadImg(i).then(mortar.append);
     });
 });
+
+function loggedIn(user) {
+    localStorage.user = user;
+    $('form').hide().after($('<div>', {'class': 'logged', 'text': 'You are ' + user + '!'}));
+    $('.logged').append(' ').append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}));
+}
+
+function loggedOut() {
+    delete localStorage.user;
+    $('.logged').remove();
+    $('form').addClass('show').show();
+}
+
+$('form').on('submit', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    $.post($this.attr('action'), $this.serialize(), function(data) {
+        loggedIn(data);
+    });
+});
+
+$(document).on('click', '.logged a', function(e) {
+    e.preventDefault();
+    loggedOut();
+});
+
+if (localStorage.user) {
+    loggedIn(localStorage.user);
+} else {
+    $('form').addClass('show');
+}

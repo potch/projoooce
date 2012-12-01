@@ -22,7 +22,6 @@
             width: 222px;
             float: left;
         }
-
         @media screen and (-webkit-min-device-pixel-ratio: 2),
                screen and (min--moz-device-pixel-ratio: 2),
                screen and (min-device-pixel-ratio: 2) {
@@ -45,9 +44,21 @@
             margin: 0 auto;
         }
 
+        form {
+            visibility: hidden;
+        }
+        form.show {
+            visibility: visible;
+        }
+
     </style>
   </head>
   <body>
+    <form action="/users/" method="post">
+        <input type="text" name="user">
+        <input type="password" name="pass">
+        <button>Find my soulmate</button>
+    </form>
     <div id="pins"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/static/js/app.js"></script>
