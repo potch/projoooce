@@ -27,7 +27,7 @@ $(document).on('click', '.logged a', function(e) {
 $(function() {
     if (localStorage.user) {
         loggedIn(localStorage.user);
-        showPane('lookingfor');
+        wait(1000).then(function() { showPane('lookingfor'); });
     } else {
         $('form').addClass('show');
     }

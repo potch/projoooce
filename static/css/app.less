@@ -1,5 +1,11 @@
 @import 'lib';
 
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 section {
     width: 100%;
     height: 100%;
@@ -9,17 +15,16 @@ section {
     background-image: url('/static/img/grain.png');
     background-color: #fff;
 
-    &.moving {
-        .transition-duration(~'.5s, .5s, .5s');
-        .transition-property(~'-moz-transform, transform, -webkit-transform')
-    }
+    .transition-duration(~'.3s, .3s, .3s');
+    .transition-property(~'-moz-transform, transform, -webkit-transform');
+
     &.left {
-        .transform(translate(-100%, 0));
+        .transform(~'translate(-100%, 0)');
     }
     &.right {
-        .transform(translate(100%, 0));
+        .transform(~'translate(100%, 0)');
     }
-    .transform(translate(0, 0));
+    .transform(~'translate(0, 0)');
 }
 
 #login {
@@ -66,7 +71,7 @@ section {
     margin-right: 0;
 }
 
-#pins {
+#pins .container {
     margin: 0 auto;
 }
 
