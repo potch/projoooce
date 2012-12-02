@@ -579,7 +579,7 @@ form input[type=password]:focus {
 #factory .luv {
   background: url(/static/img/factory.png) 50% 50% no-repeat;
   background-size: cover;
-  margin: 0 auto -250px;
+  margin: 0 auto -250px -10px;
   height: 250px;
   width: 320px;
 }
