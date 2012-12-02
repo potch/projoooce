@@ -14,8 +14,10 @@ button.no {
     .button(#bf512e);
 }
 
-button.yes {
-    .button(#93c52f);
+button {
+    &.yes, &.rate {
+        .button(#93c52f);
+    }
 }
 
 body {
@@ -154,24 +156,6 @@ section {
     float: left;
 }
 
-@media @retina {
-    #login {
-        background-size: 83px 83px;
-        &:before {
-            background-size: 20px 234px;
-        }
-    }
-    .pinimg {
-        width: 112px;
-        padding: 8px;
-        margin-bottom: 10px;
-    }
-    .col {
-        width: 112px;
-        margin: 10px 20px 0 0;
-    }
-}
-
 .col:last-child {
     margin-right: 0;
 }
@@ -301,11 +285,71 @@ form {
 }
 
 #factory {
+    background: #ececec url(/static/img/factory-grain.png);
     .luv {
         background: url(/static/img/factory.png) 50% 50% no-repeat;
         background-size: cover;
-        margin: 0 auto;
+        margin: 0 auto -250px;
         height: 250px;
         width: 320px;
+    }
+    h2, p {
+        text-shadow: 0 2px 1px #fff;
+    }
+    h2 {
+        color: #333;
+    }
+    p {
+        color: #999;
+        font-size: 16px;
+    }
+    .screen {
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        top: 80px;
+        max-width: 300px;
+    }
+    .potential {
+        margin-top: 180px;
+    }
+}
+
+.top {
+    .border-radius(10px 10px 0 0);
+    .box-shadow(~'0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset');
+    background: #bb3c6c url(/static/img/grain.png);
+    color: #fff;
+    font-size: 22px;
+    text-shadow: 0px 2px 2px #333;
+    padding: 15px 0;
+    position: absolute;
+    top: -18px;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media @retina {
+    #login {
+        background-size: 83px 83px;
+        &:before {
+            background-size: 20px 234px;
+        }
+    }
+    .pinimg {
+        width: 112px;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    .col {
+        width: 112px;
+        margin: 10px 20px 0 0;
+    }
+    section, .top {
+        background-size: 100px 100px;
+    }
+    #factory {
+        background-size: 26px 26px;
     }
 }
