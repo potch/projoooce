@@ -583,13 +583,17 @@ form input[type=password]:focus {
 #factory h2,
 #factory p {
   text-shadow: 0 2px 1px #fff;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 #factory h2 {
   color: #333;
+  font-size: 20px;
 }
 #factory p {
   color: #999;
-  font-size: 16px;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 #factory .potential {
   margin-top: 180px;
