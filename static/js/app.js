@@ -3,7 +3,8 @@ var order = [
         'lookingfor',
         'pins',
         'matches',
-        'messages'
+        'messages',
+        'chat'
         ];
 
 var panes = {};

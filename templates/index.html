@@ -8,6 +8,7 @@
     'login.js',
     'pins.js',
     'app.js',
+    'chat.js',
 ] -%}
 
 <!DOCTYPE html>
@@ -37,11 +38,11 @@
         </section>
 
         <section id="lookingfor">
-            <h1>Looking For</h1>
+          <h1>Looking For</h1>
         </section>
 
         <section id="pins">
-            <div class="remanining">You have <span class="remaining-num"></span> pinteresting individual<span class="remaining-plural">s</span> to check out</div>
+            <div class="remanining">You have <span class="remaining-num"></span> pinteresting individual<span class="remaining-plural">s</span> to check out
             <div class="scroller">
                 <div class="container"></div>
                 <h2>So, what's the verdict?</h2>
@@ -49,6 +50,7 @@
             <div class="menu">
                 <button class="button no">Not feelin' it</button>
                 <button class="button yes">I'm smitten</button>
+                <a href="#" id="gotochat">chat</a>
             </div>
         </section>
 
@@ -60,8 +62,15 @@
             <h1>Messages</h1>
         </section>
 
+        <section id="chat">
+            <h1>Chat</h1>
+            <div id="chat-text"></div>
+            <div id="chat-input"></div>
+        </section>
+
     </div>
 
+    <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
     {%- for script in JS %}
     <script type="text/javascript" src="{{ script if script.startswith(('//', 'http')) else url_for('static', filename='js/' + script) }}"></script>
     {%- endfor %}
