@@ -94,9 +94,9 @@ class HeyGirlILikeArtsyBakedGoodsTooAPI(MethodView):
     @jsonify
     def get(self, me):
         """Who's pinterested in me?"""
-        if 'unread' in request.form:
+        if 'unread' in request.values:
             unread = list(redis.smembers('users:%s:match:unread' % me))
-            redis.delete('users:%s:match:unread')
+            redis.delete('users:%s:match:unread' % me)
             return unread
         else:
             return list(redis.smembers('users:%s:match' % me))
