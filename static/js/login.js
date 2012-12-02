@@ -47,5 +47,6 @@ $(function() {
 
     if (window.location.hash.indexOf('#logout') > -1) {
         loggedOut();
+        window.location.reload();
     }
 });
