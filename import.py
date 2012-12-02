@@ -29,3 +29,4 @@ if __name__ == '__main__':
     redis.flushall()
     for user in users:
         redis.sadd('users', user.strip())
+    print 'Imported %s users' % len(users)
