@@ -35,8 +35,6 @@ def scrape_pins(user):
 
 def download_pins(user):
     pins = scrape_pins(user)
-
     for url in pins['pins']:
         redis.sadd('users:%s:pins' % user, url)
-
     return pins

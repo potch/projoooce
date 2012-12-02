@@ -11,11 +11,10 @@ Acquire dependencies:
 
     pip install -r requirements.txt
 
-Install redis:
+Install redis and its launch agent:
 
     brew install redis
-    cp /usr/local/Cellar/redis/2.6.4/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/
-    launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+    brew info redis
 
 Play with redis:
 
@@ -24,3 +23,7 @@ Play with redis:
 Keep an eye on redis:
 
     redis-cli monitor
+
+To clear redis:
+
+    redis-cli flushall
