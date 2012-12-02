@@ -19,7 +19,7 @@ function loggedIn(user) {
 function loggedOut() {
     delete localStorage.user;
     $('#logged').removeClass('show');
-    $('form').addClass('show').show();
+    $login.find('form').addClass('show').show();
 }
 
 $login.find('form').on('submit', function(e) {
@@ -41,7 +41,7 @@ $(function() {
     if (localStorage.user) {
         loggedIn(localStorage.user);
     } else {
-        $('form').addClass('show');
+        $login.find('form').addClass('show');
     }
     toggleLogin();
 
