@@ -2,6 +2,7 @@ var order = [
         'login',
         'lookingfor',
         'pins',
+        'factory',
         'matches',
         'messages',
         'chat'

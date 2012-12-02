@@ -30,7 +30,7 @@ def jsonify(f):
 @app.route('/pins/<user>')
 @jsonify
 def pins(user=None, shuffle=False):
-    user = 'kkoberger90'
+    user = None
     if shuffle:
         exclude = request.values.get('exclude')
         if exclude:
@@ -43,9 +43,12 @@ def pins(user=None, shuffle=False):
             user = users[0]
 
     print user  # Nice to know.
-    pins = get_pins(user)
-    pins['remaining'] = len(users)
-    return pins
+    if user:
+        pins = get_pins(user)
+        pins['remaining'] = len(users)
+        return pins
+    else:
+        return {}
 
 
 @app.route('/')
