@@ -1,11 +1,21 @@
 @import 'lib';
 
+* {
+    .border-box();
+}
+
+html {
+    background: #000;
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-* {
-    .border-box();
+body,
+#app,
+section {
+    .border-radius(10px 10px 0 0);
 }
 
 #app {
