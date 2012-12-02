@@ -168,10 +168,19 @@ section.right {
   text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 0.9);
 }
-#login > div {
+#login .menu {
+  background: transparent;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 15px;
+}
+#login .screen {
   margin: 0 auto;
   position: relative;
   top: 80px;
+}
+#logged a {
+  margin-left: 1em;
 }
 .logo {
   background: url(/static/img/logo.png) 50% 50% no-repeat;
@@ -358,6 +367,7 @@ form input[type=password]:focus {
   color: #d8a9ba;
   display: block;
   padding-top: 15px;
+  text-align: center;
   text-decoration: none;
   text-shadow: 1px 1px 0 #000;
 }

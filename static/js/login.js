@@ -8,14 +8,17 @@ function toggleLogin() {
 
 function loggedIn(user) {
     localStorage.user = user;
-    $('form').hide().after($('<div>', {'class': 'logged', 'text': 'You are ' + user + '!'}));
-    $('.logged').append(' ').append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}));
+    $('form').hide()
+    $('#login').addClass('logged-in');
+    $('#logged').text('You are ' + user + '!')
+                .append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}))
+                .addClass('show');
     wait(1000).then(function() { showPane('pins').then(showUser) });
 }
 
 function loggedOut() {
     delete localStorage.user;
-    $('.logged').remove();
+    $('#logged').removeClass('show');
     $('form').addClass('show').show();
 }
 
@@ -29,7 +32,7 @@ $login.find('form').on('submit', function(e) {
     toggleLogin();
 });
 
-$(document).on(actEvent, '.logged a', function(e) {
+$(document).on(actEvent, '#logged a', function(e) {
     e.preventDefault();
     loggedOut();
 });
