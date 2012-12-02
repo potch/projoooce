@@ -74,6 +74,9 @@ function showUser() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
+        if (!r) {
+            return;
+        }
         $('.remaining-num').text(r.remaining);
         $('.remaining-plural').toggle(r.remaining !== 1);
         $('.remaining').addClass('show');
