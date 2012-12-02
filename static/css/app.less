@@ -1,5 +1,9 @@
 @import 'lib';
 
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 * {
     .border-box();
 }
@@ -98,11 +102,15 @@ section {
     button {
         display: block;
         border: 1px solid black;
-        width: 100%;
         padding: 4px 8px;
         margin-top: 10px;
+        width: ~'-moz-calc(50% - 5px)';
+        display: inline-block;
         &.active {
             background: red;
+        }
+        &.no {
+            float: right;
         }
     }
     .transition-duration(~'.3s, .3s, .3s');
