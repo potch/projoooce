@@ -7,7 +7,7 @@ from flask import Flask, Response, request, render_template
 from flask.views import MethodView
 
 from common import redis
-from pinscrape import get_pins
+from pinscrape import download_pins, get_pins
 
 try:
     import settings_local as settings
@@ -32,17 +32,20 @@ def jsonify(f):
 def pins(user=None, shuffle=False):
     user = 'kkoberger90'
     if shuffle:
-        # I would use `srandmember`, but I want to exclude myself.
-        users = redis.smembers('users')
+        exclude = request.values.get('exclude')
+        if exclude:
+            users = redis.sdiff('users', 'users:%s:ugos' % exclude)
+        else:
+            users = redis.smembers('users')
         if users:
             users = list(users)
             random.shuffle(users)
-            for naughty_boy in request.values.get('exclude', '').split(','):
-                if naughty_boy in users:
-                    users.remove(naughty_boy)
             user = users[0]
+
     print user  # Nice to know.
-    return get_pins(user)
+    pins = get_pins(user)
+    pins['remaining'] = len(users)
+    return pins
 
 
 @app.route('/')
@@ -69,6 +72,8 @@ class UserAPI(MethodView):
         me = request.form.get('user', '').lower()
         if me and not redis.sismember('users', me):
             redis.sadd('users', me)
+            redis.sadd('users:%s:ugos' % me, me)
+            download_pins(me)
 
         return Response(me)
 
@@ -95,14 +100,15 @@ class HeyGirlILikeArtsyBakedGoodsTooAPI(MethodView):
     def get(self, me):
         """Who's pinterested in me?"""
         if 'unread' in request.values:
-            unread = list(redis.smembers('users:%s:match:unread' % me))
-            redis.delete('users:%s:match:unread' % me)
+            key = 'users:%s:match:unread' % me
+            unread = list(redis.smembers(key))
+            redis.delete(key)
             return unread
         else:
             return list(redis.smembers('users:%s:match' % me))
 
     def post(self, girl):
-        """Yes. I'm pinterested."""
+        """Yes. Girl, I'm pinterested in you."""
 
         yes = request.form.get('yes', '').lower()
         me = request.form.get('me', '').lower()
@@ -134,6 +140,9 @@ class HeyGirlILikeArtsyBakedGoodsTooAPI(MethodView):
                 key = 'users:%s:match:unread' % me
                 if not redis.sismember(key, me):
                     redis.sadd(key, girl)
+        else:
+            # Girl, you an ugo. My eyes are burning.
+            redis.sadd('users:%s:ugos' % me, girl)
 
         return Response(json.dumps({'success': True}))
 
