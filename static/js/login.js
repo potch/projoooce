@@ -36,7 +36,13 @@ $('#whoami').on(actEvent, '.smiley', function(e) {
 });
 
 $('#whoami button').on(actEvent, function() {
-    showPane('pins');
+    $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
+        if (r.user) {
+            showPane('pins');
+        } else {
+            showPane('factory');
+        }
+    });
     wait(300).then(showUser);
 });
 

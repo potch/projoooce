@@ -79,9 +79,6 @@ function showUser() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (!r.user) {
             showPane('factory');
-            setTimeout(function() {
-                showPane('matches');
-            }, 2000);
         }
         $('.remaining-num').text(r.remaining);
         $('.remaining-plural').toggle(r.remaining !== 1);
@@ -104,6 +101,11 @@ $('#pins button').on(actEvent, function() {
     $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, data, function() {
         showUser();
     });
+});
+
+// Show matches!
+$('#factory .potential').on('click', function() {
+    showPane('matches');
 });
 
 
