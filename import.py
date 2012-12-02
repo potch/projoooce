@@ -17,7 +17,8 @@ if __name__ == '__main__':
              'banebakken',
              'callmemonalisa',
              'mwindebank',
-             'cjdal16']
+             'cjdal16',
+             'chrisem']
 
     random.shuffle(users)
 

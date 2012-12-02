@@ -73,7 +73,6 @@
             <div id="logged" class="menu"></div>
         </section>
 
-
         <section id="pins" class="toscroll">
             <div class="scroller">
                 <div class="remaining">
@@ -107,7 +106,7 @@
             <h1 class="top">Your Matches</h1>
             <div class="screen">
                 <div class="matches">
-                    {% for username, img in matches.iteritems() %}
+                    {% for username, img in matches %}
                         <div class="match">
                             <div class="icon" style="background-image:url(http://media-cache-ec5.pinterest.com/avatars/{{ img }})"></div>
                             <div class="user">{{ username }}</div>
@@ -119,12 +118,9 @@
             </div>
         </section>
 
-        <section id="messages">
-            <h1>Messages</h1>
-        </section>
-
         <section id="chat">
-            <h1>Chat</h1>
+            <button class="button back">Back</button>
+            <h1 class="top">Chat</h1>
             <div id="chat-text"></div>
             <div id="chat-input"></div>
         </section>

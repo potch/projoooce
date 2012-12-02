@@ -9,30 +9,6 @@ body {
   background: #000;
   font-size: 14px;
 }
-button.no {
-  background-color: #bf512e;
-  padding: 9px 15px 13px;
-  border: 1px solid #964024;
-  border-radius: 5px;
-  color: #fff;
-  white-space: nowrap;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
-  font-size: 17px;
-  box-shadow: 0 -5px #964024 inset, 0 2px rgba(255, 255, 255, 0.3) inset;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-}
-button.no:active {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-  box-shadow: 0 0;
-  text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.9);
-}
 button.yes,
 button.rate {
   background-color: #93c52f;
@@ -61,6 +37,59 @@ button.rate:active {
 }
 button.rate {
   font-size: 20px;
+}
+button.no {
+  background-color: #bf512e;
+  padding: 9px 15px 13px;
+  border: 1px solid #964024;
+  border-radius: 5px;
+  color: #fff;
+  white-space: nowrap;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 17px;
+  box-shadow: 0 -5px #964024 inset, 0 2px rgba(255, 255, 255, 0.3) inset;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+button.no:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  box-shadow: 0 0;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+button.back {
+  background-color: #eeeeee;
+  padding: 9px 15px 13px;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  color: #fff;
+  white-space: nowrap;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 17px;
+  box-shadow: 0 -5px #d5d5d5 inset, 0 2px rgba(255, 255, 255, 0.3) inset;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.1)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  color: #333;
+  padding: 5px 15px 4px;
+}
+button.back:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  box-shadow: 0 0;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+button.back:active {
+  color: #666;
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -706,9 +735,16 @@ form input[type=password]:focus {
   z-index: 2;
   width: 100%;
 }
+.back {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  z-index: 3;
+}
 .match {
   background: #fff;
   border-bottom: 1px solid #ccc;
+  display: block;
   font-weight: 400;
   text-align: left;
   padding: 15px;
@@ -719,7 +755,7 @@ form input[type=password]:focus {
   vertical-align: middle;
 }
 .match .icon {
-  background-position: 50% 50%;
+  background-size: cover;
   height: 64px;
   margin-right: 15px;
   width: 64px;
@@ -732,6 +768,82 @@ form input[type=password]:focus {
   -webkit-box-shadow: 0 5px #333;
   -moz-box-shadow: 0 5px #333;
   box-shadow: 0 5px #333;
+}
+#chat-text {
+  font-size: 18px;
+  padding: 65px 15px 15px;
+}
+#chat-text em {
+  color: #999;
+  font-style: normal;
+}
+#chat-text div + div {
+  margin-top: 2px;
+}
+#chat-form {
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -ms-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.8)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  padding: 15px;
+}
+#chat-form input {
+  -webkit-box-shadow: 1px 1px 0 #333333 inset, 2px 2px 3px #000000 inset;
+  -moz-box-shadow: 1px 1px 0 #333333 inset, 2px 2px 3px #000000 inset;
+  box-shadow: 1px 1px 0 #333333 inset, 2px 2px 3px #000000 inset;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  width: 100%;
+}
+#chat-form input:-moz-placeholder {
+  color: #666;
+}
+#chat-form input::-webkit-input-placeholder {
+  color: #666;
+}
+#chat-form button {
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+  -webkit-box-shadow: 1px 1px 0 #333333, 1px 1px 2px #000000;
+  -moz-box-shadow: 1px 1px 0 #333333, 1px 1px 2px #000000;
+  box-shadow: 1px 1px 0 #333333, 1px 1px 2px #000000;
+  background: #555;
+  border: 0;
+  color: #333;
+  font-size: 32px;
+  text-shadow: 0 1px 1px #666;
+  padding: 2px 10px 1px;
+  float: right;
+  top: 17px;
+  right: 16px;
+  position: absolute;
+}
+#chat-form button:active,
+#chat-form button:focus {
+  background: #333;
+  color: #000;
+}
+input[placeholder]:-moz-placeholder:focus {
+  color: transparent !important;
+}
+input[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
   #login {
