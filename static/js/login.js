@@ -43,7 +43,10 @@ $(function() {
     } else {
         $login.find('form').addClass('show');
     }
-    toggleLogin();
+
+    setTimeout(function() {
+        toggleLogin();
+    }, 200);
 
     if (window.location.hash.indexOf('#logout') > -1) {
         loggedOut();
