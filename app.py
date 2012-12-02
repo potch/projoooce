@@ -70,7 +70,7 @@ class UserAPI(MethodView):
         if me and not redis.sismember('users', me):
             redis.sadd('users', me)
 
-        return Response(user)
+        return Response(me)
 
     def delete(self, user):
         """Delete a single user."""
