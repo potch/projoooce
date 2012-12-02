@@ -29,7 +29,7 @@ $login.find('form').on('submit', function(e) {
     toggleLogin();
 });
 
-$(document).on('click', '.logged a', function(e) {
+$(document).on(actEvent, '.logged a', function(e) {
     e.preventDefault();
     loggedOut();
 });

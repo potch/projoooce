@@ -92,7 +92,7 @@ function showUser() {
     });
 }
 
-$('#pins .yes').click(function() {
+$('#pins .yes').on(actEvent, function() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
     $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, {
