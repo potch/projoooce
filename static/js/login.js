@@ -10,7 +10,7 @@ function loggedIn(user) {
     localStorage.user = user;
     $('form').hide().after($('<div>', {'class': 'logged', 'text': 'You are ' + user + '!'}));
     $('.logged').append(' ').append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}));
-    wait(1000).then(function() { showPane('pins').then(showUser) });
+    // wait(1000).then(function() { showPane('pins').then(showUser) });
 }
 
 function loggedOut() {
