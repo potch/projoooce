@@ -1,13 +1,18 @@
-function initChat() {
-    $('#chat-form').remove();
+var chatShown = false;
 
+function initChat() {
     showPane('chat');
+    if (chatShown) {
+        return;
+    }
+    chatShown = true;
+
     var $cf = $('<form>', {'id': 'chat-form'});
     $cf.append($('<input>', {'type': 'text', 'placeholder': 'Say something sweet...'}));
     $cf.append($('<button>', {'text': '+'}));
     $('#chat-input').append($cf);
 
-    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'def');
+    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'ghi');
 
     fb.on('child_added', function (snapshot) {
         var message = snapshot.val();

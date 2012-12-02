@@ -119,6 +119,7 @@ section {
   left: 0;
   background-image: url('/static/img/grain.png');
   background-color: #fff;
+  overflow: hidden;
   -webkit-transform: translate(0, 0) translateZ(0);
   -moz-transform: translate(0, 0) translateZ(0);
   -ms-transform: translate(0, 0) translateZ(0);
@@ -138,6 +139,77 @@ section.right {
   -ms-transform: translate(100%, 0) translateZ(0);
   -o-transform: translate(100%, 0) translateZ(0);
   transform: translate(100%, 0) translateZ(0);
+}
+section:before {
+  pointer-events: none;
+  opacity: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+section .throbber {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 36px;
+  height: 36px;
+  display: none;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+  border-radius: 32px;
+  border: 6px solid #fff;
+  border-color: #fff transparent;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  -ms-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+section.loading .throbber {
+  display: block;
+}
+section.loading:before {
+  pointer-events: auto;
+  opacity: 1;
+  -moz-transition: .3s opacity ease-out;
+  -webkit-transition: .3s opacity ease-out;
+  transition: .3s opacity ease-out;
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0turn);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0turn);
+  }
+  to {
+    -moz-transform: rotate(1turn);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
 #app.ready section {
   -moz-transition-duration: .3s, .3s, .3s;
@@ -167,7 +239,7 @@ section.right {
 }
 #login form {
   width: 244px;
-  margin: 80px auto 0;
+  margin: 60px auto 0;
   z-index: 2;
 }
 #login form input {
@@ -219,11 +291,11 @@ section.right {
   -moz-transition-property: -moz-transform, transform, -webkit-transform;
   -webkit-transition-property: -moz-transform, transform, -webkit-transform;
   transition-property: -moz-transform, transform, -webkit-transform;
-  -webkit-transform: translate(0, 50px) translateZ(0);
-  -moz-transform: translate(0, 50px) translateZ(0);
-  -ms-transform: translate(0, 50px) translateZ(0);
-  -o-transform: translate(0, 50px) translateZ(0);
-  transform: translate(0, 50px) translateZ(0);
+  -webkit-transform: translate(0, 96px) translateZ(0);
+  -moz-transform: translate(0, 96px) translateZ(0);
+  -ms-transform: translate(0, 96px) translateZ(0);
+  -o-transform: translate(0, 96px) translateZ(0);
+  transform: translate(0, 96px) translateZ(0);
 }
 #login #whoami {
   opacity: 0;
@@ -698,6 +770,11 @@ form input[type=password]:focus {
 #factory button {
   position: relative;
 }
+#factory,
+#matches {
+  color: #aaa;
+  text-shadow: 0 2px 1px #fff;
+}
 #factory .screen,
 #matches .screen {
   margin: 0 auto;
@@ -714,6 +791,20 @@ form input[type=password]:focus {
   -webkit-box-shadow: 0 0 5px #999;
   -moz-box-shadow: 0 0 5px #999;
   box-shadow: 0 0 5px #999;
+}
+#matches .match {
+  font-size: 16px;
+  color: #666;
+}
+#matches .match .user {
+  margin-right: 15px;
+}
+#matches .match .icon {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 .top {
   -webkit-border-radius: 10px 10px 0 0;
