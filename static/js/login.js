@@ -2,7 +2,7 @@ var $login = $('#login');
 
 function toggleLogin() {
     var showButton = !!($login.find('input[name=user]').val() && $login.find('input[name=pass]').val());
-    $login.find('button').toggle(showButton);
+    $login.find('form button').toggle(showButton);
     $login.find('.get-one').toggle(!showButton);
 }
 
@@ -13,17 +13,28 @@ function loggedIn(user) {
     $('#logged').text('You are ' + user + '!')
                 .append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}))
                 .addClass('show');
-    // wait(1000).then(function() { showPane('pins').then(showUser) });
 }
 
 function loggedOut() {
     delete localStorage.user;
     $('#logged').removeClass('show');
     $('#login').removeClass('logged-in');
+    showPane('login');
 }
 
 $('#whoami').on(actEvent, '.smiley', function() {
-    $(this).toggleClass('on');
+    alert(1);
+    var smiley = $(this);
+    if (smiley.hasClass('on')) {
+        smiley.removeClass('on');
+    } else {
+        smiley.addClass('on');
+    }
+});
+
+$('#whoami button').on(actEvent, function() {
+    showPane('pins');
+    wait(300).then(showUser);
 });
 
 $login.find('form').on('submit', function(e) {

@@ -87,25 +87,25 @@ section {
   left: 0;
   background-image: url('/static/img/grain.png');
   background-color: #fff;
-  -webkit-transform: translate(0, 0, 0) translateZ(0);
-  -moz-transform: translate(0, 0, 0) translateZ(0);
-  -ms-transform: translate(0, 0, 0) translateZ(0);
-  -o-transform: translate(0, 0, 0) translateZ(0);
-  transform: translate(0, 0, 0) translateZ(0);
+  -webkit-transform: translate(0, 0) translateZ(0);
+  -moz-transform: translate(0, 0) translateZ(0);
+  -ms-transform: translate(0, 0) translateZ(0);
+  -o-transform: translate(0, 0) translateZ(0);
+  transform: translate(0, 0) translateZ(0);
 }
 section.left {
-  -webkit-transform: translate(-100%, 0, 0) translateZ(0);
-  -moz-transform: translate(-100%, 0, 0) translateZ(0);
-  -ms-transform: translate(-100%, 0, 0) translateZ(0);
-  -o-transform: translate(-100%, 0, 0) translateZ(0);
-  transform: translate(-100%, 0, 0) translateZ(0);
+  -webkit-transform: translate(-100%, 0) translateZ(0);
+  -moz-transform: translate(-100%, 0) translateZ(0);
+  -ms-transform: translate(-100%, 0) translateZ(0);
+  -o-transform: translate(-100%, 0) translateZ(0);
+  transform: translate(-100%, 0) translateZ(0);
 }
 section.right {
-  -webkit-transform: translate(100%, 0, 0) translateZ(0);
-  -moz-transform: translate(100%, 0, 0) translateZ(0);
-  -ms-transform: translate(100%, 0, 0) translateZ(0);
-  -o-transform: translate(100%, 0, 0) translateZ(0);
-  transform: translate(100%, 0, 0) translateZ(0);
+  -webkit-transform: translate(100%, 0) translateZ(0);
+  -moz-transform: translate(100%, 0) translateZ(0);
+  -ms-transform: translate(100%, 0) translateZ(0);
+  -o-transform: translate(100%, 0) translateZ(0);
+  transform: translate(100%, 0) translateZ(0);
 }
 #app.ready section {
   -moz-transition-duration: .3s, .3s, .3s;
@@ -181,10 +181,17 @@ section.right {
 #login .screen {
   margin: 0 auto;
   position: relative;
-  margin-top: 80px;
-  -moz-transition: .3s margin-top ease-out;
-  -webkit-transition: .3s margin-top ease-out;
-  transition: .3s margin-top ease-out;
+  -moz-transition-duration: .3s, .3s, .3s;
+  -webkit-transition-duration: .3s, .3s, .3s;
+  transition-duration: .3s, .3s, .3s;
+  -moz-transition-property: -moz-transform, transform, -webkit-transform;
+  -webkit-transition-property: -moz-transform, transform, -webkit-transform;
+  transition-property: -moz-transform, transform, -webkit-transform;
+  -webkit-transform: translate(0, 50px) translateZ(0);
+  -moz-transform: translate(0, 50px) translateZ(0);
+  -ms-transform: translate(0, 50px) translateZ(0);
+  -o-transform: translate(0, 50px) translateZ(0);
+  transform: translate(0, 50px) translateZ(0);
 }
 #login #whoami {
   opacity: 0;
@@ -224,7 +231,11 @@ section.right {
   font-weight: bold;
 }
 #login.logged-in .screen {
-  margin-top: 20px;
+  -webkit-transform: translate(0, 10px) translateZ(0);
+  -moz-transform: translate(0, 10px) translateZ(0);
+  -ms-transform: translate(0, 10px) translateZ(0);
+  -o-transform: translate(0, 10px) translateZ(0);
+  transform: translate(0, 10px) translateZ(0);
 }
 #login.logged-in form {
   display: none;
@@ -459,7 +470,7 @@ form input[type=password]:focus {
   color: #333;
   outline: 0;
 }
-#login button {
+#login form button {
   display: none;
   margin-top: 15px;
 }
