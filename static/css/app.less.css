@@ -195,9 +195,17 @@ section.right {
 }
 #login #whoami {
   opacity: 0;
-  -moz-transition: .3s opacity ease-out;
-  -webkit-transition: .3s opacity ease-out;
-  transition: .3s opacity ease-out;
+  -moz-transition-duration: .5s, .5s, .5s, .3s;
+  -webkit-transition-duration: .5s, .5s, .5s, .3s;
+  transition-duration: .5s, .5s, .5s, .3s;
+  -moz-transition-property: -moz-transform, transform, -webkit-transform, opacity;
+  -webkit-transition-property: -moz-transform, transform, -webkit-transform, opacity;
+  transition-property: -moz-transform, transform, -webkit-transform, opacity;
+  -webkit-transform: translate(0, 500%) translateZ(0);
+  -moz-transform: translate(0, 500%) translateZ(0);
+  -ms-transform: translate(0, 500%) translateZ(0);
+  -o-transform: translate(0, 500%) translateZ(0);
+  transform: translate(0, 500%) translateZ(0);
   width: 292px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
@@ -218,13 +226,26 @@ section.right {
   width: 100%;
   display: block;
 }
+#login #whoami p {
+  color: #888;
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 18px;
+}
+#login #whoami .gen {
+  font-weight: bold;
+  color: #ea7fdc;
+}
+#login #whoami .gen.dude {
+  color: #2cb0e7;
+}
 #login #whoami h2 {
   margin: -10px;
   font-size: 16px;
   text-align: center;
   padding: 1em;
   font-weight: normal;
-  background: #ccc;
+  background: url('/static/img/grain.png') #dddddd;
   border-bottom: 1px solid #888;
 }
 #login #whoami h2 span {
@@ -242,15 +263,32 @@ section.right {
 }
 #login.logged-in #whoami {
   opacity: 1;
+  -webkit-transform: translate(0, 0) translateZ(0);
+  -moz-transform: translate(0, 0) translateZ(0);
+  -ms-transform: translate(0, 0) translateZ(0);
+  -o-transform: translate(0, 0) translateZ(0);
+  transform: translate(0, 0) translateZ(0);
+}
+.gender {
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 .smiley {
   cursor: pointer;
   width: 118px;
   height: 120px;
-  margin: 30px 0;
+  margin: 10px 0 0 0;
   z-index: 1;
   display: inline-block;
   position: relative;
+}
+.smiley.right {
+  float: right;
+  margin-right: 18px;
+}
+.smiley.left {
+  float: left;
+  margin-left: 18px;
 }
 .smiley.on .face,
 .smiley.on .bow-in {
@@ -276,8 +314,15 @@ section.right {
   -o-transform: rotate(180deg) translateY(-1px) translateZ(0);
   transform: rotate(180deg) translateY(-1px) translateZ(0);
 }
+.smiley.left.on .bow-out {
+  -webkit-transform: rotate(-180deg) translateY(-1px) translateZ(0);
+  -moz-transform: rotate(-180deg) translateY(-1px) translateZ(0);
+  -ms-transform: rotate(-180deg) translateY(-1px) translateZ(0);
+  -o-transform: rotate(-180deg) translateY(-1px) translateZ(0);
+  transform: rotate(-180deg) translateY(-1px) translateZ(0);
+}
 .smiley .face {
-  background-image: url(http://cl.ly/image/02073p3l3g1q/smiley.png);
+  background-image: url(/static/img/smiley.png);
   background-size: cover;
   background-color: #ea7fdc;
   -webkit-transition: background-color 0.6s ease-out;
@@ -298,7 +343,7 @@ section.right {
   -webkit-transition: -webkit-transform 0.6s ease-out;
 }
 .smiley .bow-out .bow-in {
-  background-image: url('http://cl.ly/image/0G1Q0M2q3S36/smiley-bottom.png');
+  background-image: url(/static/img/smiley-bottom.png);
   background-size: cover;
   width: 59px;
   height: 29px;

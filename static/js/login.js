@@ -22,13 +22,16 @@ function loggedOut() {
     showPane('login');
 }
 
-$('#whoami').on(actEvent, '.smiley', function() {
-    alert(1);
+$('#whoami').on(actEvent, '.smiley', function(e) {
+    e.preventDefault();
     var smiley = $(this);
+    var which = smiley.hasClass('left') ? 0 : 1;
     if (smiley.hasClass('on')) {
         smiley.removeClass('on');
+        $('.gen').eq(which).text('gal').removeClass('dude');
     } else {
         smiley.addClass('on');
+        $('.gen').eq(which).text('guy').addClass('dude');
     }
 });
 
