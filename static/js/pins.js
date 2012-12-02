@@ -91,7 +91,7 @@ function showUser() {
     });
 }
 
-$('#pins button').on(actEvent, function() {
+$('#pins button').on(actEventOff, function() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
     var data = {me: localStorage.user};

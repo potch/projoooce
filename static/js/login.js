@@ -35,7 +35,7 @@ $('#whoami').on(actEvent, '.smiley', function(e) {
     }
 });
 
-$('#whoami button').on(actEvent, function() {
+$('#whoami button').on(actEventOff, function() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (r.user) {
             showPane('pins');

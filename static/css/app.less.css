@@ -570,6 +570,46 @@ form input[type=password]:focus {
 .get-one:hover {
   color: #e8ccd6;
 }
+@-webkit-keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 485px 0;
+  }
+}
+@-moz-keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 485px 0;
+  }
+}
+@-ms-keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 485px 0;
+  }
+}
+@-o-keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 485px 0;
+  }
+}
+@keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 485px 0;
+  }
+}
 #factory {
   background: #ececec url(/static/img/factory-grain.png);
 }
@@ -579,6 +619,32 @@ form input[type=password]:focus {
   margin: 0 auto -250px -10px;
   height: 250px;
   width: 320px;
+  position: relative;
+}
+#factory .luv .f1 {
+  background-image: url(/static/img/f1.png);
+  background-size: cover;
+  height: 26px;
+  position: absolute;
+  top: 54px;
+  width: 112px;
+  -webkit-animation: 30s linear 0s normal none infinite bgscroll;
+  -moz-animation: 30s linear 0s normal none infinite bgscroll;
+  -ms-animation: 30s linear 0s normal none infinite bgscroll;
+  animation: 30s linear 0s normal none infinite bgscroll;
+}
+#factory .luv .f2 {
+  background-image: url(/static/img/f2.png);
+  background-size: cover;
+  height: 26px;
+  position: absolute;
+  right: 0;
+  top: 57px;
+  width: 109px;
+  -webkit-animation: 20s linear 0s normal none infinite bgscroll;
+  -moz-animation: 20s linear 0s normal none infinite bgscroll;
+  -ms-animation: 20s linear 0s normal none infinite bgscroll;
+  animation: 20s linear 0s normal none infinite bgscroll;
 }
 #factory h2,
 #factory p {
@@ -588,15 +654,20 @@ form input[type=password]:focus {
 }
 #factory h2 {
   color: #333;
-  font-size: 20px;
+  font-size: 18px;
 }
 #factory p {
   color: #999;
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 12px;
+  padding: 0 5px;
 }
 #factory .potential {
   margin-top: 180px;
+  position: relative;
+}
+#factory button {
+  position: relative;
 }
 #factory .screen,
 #matches .screen {
