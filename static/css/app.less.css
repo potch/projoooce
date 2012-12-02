@@ -378,15 +378,12 @@ section.right {
   width: 263px;
   margin: 0 auto;
   position: relative;
-<<<<<<< HEAD
-=======
   -moz-transition-duration: .3s, .3s, .3s;
   -webkit-transition-duration: .3s, .3s, .3s;
   transition-duration: .3s, .3s, .3s;
   -moz-transition-property: -moz-transform, transform, -webkit-transform;
   -webkit-transition-property: -moz-transform, transform, -webkit-transform;
   transition-property: -moz-transform, transform, -webkit-transform;
->>>>>>> 97942847a0a1656d258832b278ce320f90ce7509
 }
 .tagline {
   color: #fff;
@@ -480,24 +477,11 @@ section.right {
   overflow: auto;
 }
 #pins .scroller h2 {
-<<<<<<< HEAD
-  display: none;
-  text-align: center;
-  color: #888888;
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 120px;
-  text-shadow: 1px 1px #FFFFFF;
-}
-#pins .scroller h2 em {
-  color: #333;
-=======
   text-align: center;
   font-weight: normal;
   color: #aaa;
   text-shadow: 0 1px #fff;
   margin-bottom: 80px;
->>>>>>> 97942847a0a1656d258832b278ce320f90ce7509
 }
 #pins .container {
   margin: 0 auto;
