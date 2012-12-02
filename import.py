@@ -2,6 +2,7 @@ import random
 import sys
 
 from common import redis
+from pinscrape import download_pins
 
 
 if __name__ == '__main__':
@@ -30,4 +31,5 @@ if __name__ == '__main__':
     redis.flushall()
     for user in users:
         redis.sadd('users', user.strip())
+        download_pins(user)
     print 'Imported %s users' % len(users)
