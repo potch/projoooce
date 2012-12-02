@@ -28,20 +28,39 @@
         <section id="login">
             <div class="screen">
                 <h1 class="logo">pinterested</h1>
-                <h2 class="tagline">Dating based on mutual (p)interests</h2>
                 <form action="/users/" method="post">
+                    <h2 class="tagline">Dating based on mutual (p)interests</h2>
                     <input type="text" name="user" placeholder="Pinterest Username" required  autocorrect="off" autocapitalize="off">
                     <input type="password" name="pass" placeholder="Password" required>
                     <a href="https://pinterest.com/join/signup/" target="_blank" class="get-one">No Pinterest account? <b>Get one!</b></a>
                     <button>Find my soulmate</button>
                 </form>
+                <div id="whoami">
+                    <h2>I'm <span class="name"></span>, a&hellip;</h2>
+                    <div class="gender">
+                        <div class="smiley">
+                            <div class="face">
+                            </div>
+                            <div class="bow-out">
+                                <div class="bow-in">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="smiley">
+                            <div class="face">
+                            </div>
+                            <div class="bow-out">
+                                <div class="bow-in">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="yes">I'm ready to woo</button>
+                </div>
             </div>
             <div id="logged" class="menu"></div>
         </section>
 
-        <section id="lookingfor">
-          <h1>Looking For</h1>
-        </section>
 
         <section id="pins" class="toscroll">
             <div class="remaining">
@@ -59,12 +78,14 @@
         </section>
 
         <section id="factory">
-            <h1>Your Matches</h1>
-            <h2>Turning interests into matches!</h2>
-            <p>This could take a while. We&rsquo;ll let you know when we find something.</p>
-            <p>Want more potential matches?</p>
-            <div class="luv"></div>
-            <button class="button">Rate more people</button>
+            <h1 class="top">Your Matches</h1>
+            <div class="screen">
+                <h2>Turning interests into matches!</h2>
+                <p>This could take a while. We&rsquo;ll let you know when we find something.</p>
+                <div class="luv"></div>
+                <p class="potential">Want more potential matches?</p>
+                <button class="button rate">Rate more people</button>
+            </div>
         </section>
 
         <section id="matches">
@@ -72,7 +93,7 @@
             <h2>Turning interests into matches!</h2>
             <p>This could take a while. We&rsquo;ll let you know when we find something.</p>
             <p>Want more potential matches?</p>
-            <button class="button">Rate more people</button>
+            <button class="button rate">Rate more people</button>
         </section>
 
         <section id="messages">

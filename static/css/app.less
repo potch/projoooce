@@ -14,8 +14,10 @@ button.no {
     .button(#bf512e);
 }
 
-button.yes {
-    .button(#93c52f);
+button {
+    &.yes, &.rate {
+        .button(#93c52f);
+    }
 }
 
 body {
@@ -37,6 +39,7 @@ section {
     overflow: hidden;
 }
 
+
 section {
     position: absolute;
     width: 100%;
@@ -47,13 +50,13 @@ section {
     background-color: #fff;
 
     &.left {
-        .transform(~'translate(-100%, 0)');
+        .transform(~'translate(-100%, 0, 0) translateZ(0)');
     }
     &.right {
-        .transform(~'translate(100%, 0)');
+        .transform(~'translate(100%, 0, 0) translateZ(0)');
     }
 
-    .transform(~'translate(0, 0)');
+    .transform(~'translate(0, 0, 0) translateZ(0)');
 }
 
 #app.ready section {
@@ -62,6 +65,7 @@ section {
 }
 
 #login {
+    z-index: 9;
     background: #bc0c4e url(/static/img/bg.png);
     &:before {
         .border-radius(10px 10px 0 0);
@@ -75,7 +79,7 @@ section {
     }
     form {
         width: 244px;
-        margin: 50px auto 0;
+        margin: 80px auto 0;
         z-index: 2;
         input {
             width: 100%;
@@ -101,11 +105,117 @@ section {
     .screen {
         margin: 0 auto;
         position: relative;
-        top: 120px;
+        margin-top: 120px;
+        .transition(~'.3s margin-top ease-out');
+    }
+
+    #whoami {
+        opacity: 0;
+        .transition(~'.3s opacity ease-out');
+        width: 292px;
+        .box-shadow(0 0 10px rgba(0,0,0,0.7));
+        margin: 0 auto;
+        background-image: url('/static/img/grain.png');
+        background-color: hsl(0,0%,93%);
+        .border-radius(5px);
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 10px;
+
+        button {
+            width: 100%;
+            display: block;
+        }
+
+        h2 {
+            margin: -10px;
+            font-size: 16px;
+            text-align: center;
+            padding: 1em;
+            font-weight: normal;
+            background: #ccc;
+            border-bottom: 1px solid #888;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+
+    &.logged-in {
+        .screen {
+            margin-top: 20px;
+        }
+        form {
+            display: none;
+        }
+        #whoami {
+            opacity: 1;
+        }
+    }
+}
+
+.smiley {
+    cursor: pointer;
+    width: 118px;
+    height: 120px;
+    margin: 30px 0;
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+
+    &.on {
+        .face, .bow-in {
+            .transform(~'translateZ(0)');
+            background-color: #2cb0e7 !important;
+        }
+        .bow-in {
+            .transform(~'translateZ(0)');
+            background-position: 0 0px !important;
+        }
+        .bow-out {
+            .transform(~'rotate(180deg) translateY(-1px) translateZ(0)');
+        }
+    }
+    .face {
+        background-image: url(http://cl.ly/image/02073p3l3g1q/smiley.png);
+        background-size: cover;
+        background-color: #ea7fdc;
+        -webkit-transition: background-color 0.6s ease-out;
+        transition: background-color 0.6s ease-out;
+        width: 98px;
+        height: 98px;
+        top: 10px;
+        left: 10px;
+        position: absolute;
+    }
+    .bow-out {
+        width: 118px;
+        height: 118px;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        transition: transform 0.6s ease-out;
+        -webkit-transition: -webkit-transform 0.6s ease-out;
+        .bow-in {
+            background-image: url('http://cl.ly/image/0G1Q0M2q3S36/smiley-bottom.png');
+            background-size: cover;
+            width: 59px;
+            height: 29px;
+            background-color: #ea7fdc;
+            background-position: 0 -29px;
+            transition: background-color 0.6s ease-out;
+            -webkit-transition: background-color 0.6s ease-out;
+            left: 29px;
+            top: 2px;
+            position: absolute;
+        }
     }
 }
 
 #logged a {
+    color: #fff;
     margin-left: 1em;
 }
 
@@ -126,8 +236,11 @@ section {
     text-shadow: 1px 1px rgba(0,0,0,0.6);
     font-weight: 300;
     margin-left: 0;
-    margin-top: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
     text-align: center;
+    top: 50px;
 }
 
 .pinimg {
@@ -151,24 +264,6 @@ section {
     margin: 15px 20px 0 0;
     width: 222px;
     float: left;
-}
-
-@media @retina {
-    #login {
-        background-size: 83px 83px;
-        &:before {
-            background-size: 20px 234px;
-        }
-    }
-    .pinimg {
-        width: 112px;
-        padding: 8px;
-        margin-bottom: 10px;
-    }
-    .col {
-        width: 112px;
-        margin: 10px 20px 0 0;
-    }
 }
 
 .col:last-child {
@@ -309,11 +404,71 @@ form {
 }
 
 #factory {
+    background: #ececec url(/static/img/factory-grain.png);
     .luv {
         background: url(/static/img/factory.png) 50% 50% no-repeat;
         background-size: cover;
-        margin: 0 auto;
+        margin: 0 auto -250px;
         height: 250px;
         width: 320px;
+    }
+    h2, p {
+        text-shadow: 0 2px 1px #fff;
+    }
+    h2 {
+        color: #333;
+    }
+    p {
+        color: #999;
+        font-size: 16px;
+    }
+    .screen {
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        top: 80px;
+        max-width: 300px;
+    }
+    .potential {
+        margin-top: 180px;
+    }
+}
+
+.top {
+    .border-radius(10px 10px 0 0);
+    .box-shadow(~'0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset');
+    background: #bb3c6c url(/static/img/grain.png);
+    color: #fff;
+    font-size: 22px;
+    text-shadow: 0px 2px 2px #333;
+    padding: 15px 0;
+    position: absolute;
+    top: -18px;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media @retina {
+    #login {
+        background-size: 83px 83px;
+        &:before {
+            background-size: 20px 234px;
+        }
+    }
+    .pinimg {
+        width: 112px;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    .col {
+        width: 112px;
+        margin: 10px 20px 0 0;
+    }
+    section, .top {
+        background-size: 100px 100px;
+    }
+    #factory {
+        background-size: 26px 26px;
     }
 }

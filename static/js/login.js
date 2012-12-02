@@ -8,19 +8,23 @@ function toggleLogin() {
 
 function loggedIn(user) {
     localStorage.user = user;
-    $('form').hide()
     $('#login').addClass('logged-in');
+    $('#whoami h2 span').text(user);
     $('#logged').text('You are ' + user + '!')
                 .append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}))
                 .addClass('show');
-    wait(1000).then(function() { showPane('pins').then(showUser) });
+    // wait(1000).then(function() { showPane('pins').then(showUser) });
 }
 
 function loggedOut() {
     delete localStorage.user;
     $('#logged').removeClass('show');
-    $login.find('form').addClass('show').show();
+    $('#login').removeClass('logged-in');
 }
+
+$('#whoami').on(actEvent, '.smiley', function() {
+    $(this).toggleClass('on');
+});
 
 $login.find('form').on('submit', function(e) {
     e.preventDefault();
@@ -49,7 +53,7 @@ $(function() {
     }, 200);
 
     if (window.location.hash.indexOf('#logout') > -1) {
+        showPane('login');
         loggedOut();
-        window.location.reload();
     }
 });
