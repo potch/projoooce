@@ -79,6 +79,7 @@ function showUser() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (!r.user) {
             showPane('factory');
+            return;
         }
         $('.remaining-num').text(r.remaining);
         $('.remaining-plural').toggle(r.remaining !== 1);
