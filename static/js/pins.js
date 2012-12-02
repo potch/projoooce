@@ -72,11 +72,13 @@ function Mortar(numCols, parent) {
 
 function showUser() {
     mortar.clear();
+    $('#pins .menu').removeClass('show');
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         $('.who').text(r.user);
         r.pins.forEach(function(i) {
             loadImg(i).then(mortar.append);
         });
+        $('#pins .menu').addClass('show');
     });
 }
 

@@ -1,5 +1,9 @@
 @import 'lib';
 
+* {
+    .border-box();
+}
+
 #app {
     position: absolute;
     top: 0;
@@ -74,6 +78,42 @@ section {
     margin-right: 0;
 }
 
+.menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    background: fade(#fff, 90%);
+    h2 {
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        line-height: 40px;
+        text-align: center;
+    }
+    button {
+        display: block;
+        border: 1px solid black;
+        width: 100%;
+        padding: 4px 8px;
+        margin-top: 10px;
+        &.active {
+            background: red;
+        }
+    }
+    .transition-duration(~'.3s, .3s, .3s');
+    .transition-property(~'-moz-transform, transform, -webkit-transform');
+    .transform(~'translate(0, 100%)');
+
+    &.show {
+        .transform(~'translate(0, 0)');
+    }
+}
+
 #pins {
     .scroller {
         top: 0;
@@ -86,26 +126,6 @@ section {
 
     .container {
         margin: 0 auto;
-    }
-
-    .who {
-        font: 18px Georgia, serif;
-        z-index: 1;
-        position: absolute;
-        line-height: 50px;
-        height: 50px;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 80%;
-        max-width: 700px;
-        margin: 0 auto;
-        border: 2px solid black;
-        border-width: 0 2px 2px 2px;
-        background: fade(#fff, 90%);
-        .border-radius(0 0 5px 5px);
-        color: magenta;
-        text-align: center;
     }
 }
 

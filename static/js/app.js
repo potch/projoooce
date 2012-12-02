@@ -26,16 +26,21 @@ order.forEach(function(p) {
 })
 
 function showPane(newPane) {
+    var d = $.Deferred();
+
     if (currentPane === newPane) {
-        return;
+        d.reject();
     }
 
     panes[currentPane].addClass(rel(currentPane, newPane));
     panes[newPane].removeClass(rel(newPane, currentPane));
 
-    wait(0).then(function() {
+    wait(300).then(function() {
         currentPane = newPane;
+        d.resolve();
     });
+
+    return d;
 }
 
 function rel(n1, n2) {
