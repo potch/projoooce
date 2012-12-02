@@ -287,7 +287,7 @@ form input[type=password] {
   font-size: 18px;
   line-height: 20px;
   margin: 0;
-  padding: 3px 5px;
+  padding: 10px 10px;
 }
 form input[type=text]:focus,
 form input[type=password]:focus {
@@ -310,6 +310,7 @@ form input[type=password]:focus {
   -ms-border-radius: 5px 5px 0 0;
   -o-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
+  border-bottom: 0;
 }
 #login input[type=password] {
   -webkit-border-radius: 0 0 5px 5px;
