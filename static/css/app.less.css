@@ -192,6 +192,11 @@ section.right {
   width: 263px;
   margin: 0 auto;
   position: relative;
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
 }
 .tagline {
   color: #fff;
@@ -199,6 +204,7 @@ section.right {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
   font-weight: 300;
   margin-left: 0;
+  margin-top: 2px;
   text-align: center;
 }
 .pinimg {
