@@ -49,3 +49,7 @@ function rel(n1, n2) {
 
     return p1 > p2 ? 'right' : 'left';
 }
+
+$(function() {
+    $('#app').addClass('ready');
+});

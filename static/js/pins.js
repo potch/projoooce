@@ -70,6 +70,10 @@ function Mortar(numCols, parent) {
     self.clear();
 }
 
+
+var currentUser;
+
+
 function showUser() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
@@ -83,9 +87,17 @@ function showUser() {
         r.pins.forEach(function(i) {
             loadImg(i).then(mortar.append);
         });
+        currentUser = r.user;
         $('#pins .menu').addClass('show');
     });
 }
+
+$('#pins .yes').click(function() {
+    $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, {
+        yes: 1,
+        me: localStorage.user
+    });
+});
 
 var colWidth = retina ? 112 : 222;
 var margin = retina ? 20 : 15;

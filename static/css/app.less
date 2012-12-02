@@ -44,16 +44,19 @@ section {
     background-image: url('/static/img/grain.png');
     background-color: #fff;
 
-    .transition-duration(~'.3s, .3s, .3s');
-    .transition-property(~'-moz-transform, transform, -webkit-transform');
-
     &.left {
         .transform(~'translate(-100%, 0)');
     }
     &.right {
         .transform(~'translate(100%, 0)');
     }
+
     .transform(~'translate(0, 0)');
+}
+
+#app.ready section {
+    .transition-duration(~'.3s, .3s, .3s');
+    .transition-property(~'-moz-transform, transform, -webkit-transform');
 }
 
 #login {
