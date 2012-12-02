@@ -49,6 +49,7 @@ $(function() {
     }, 200);
 
     if (window.location.hash.indexOf('#logout') > -1) {
+        showPane('login');
         loggedOut();
     }
 });
