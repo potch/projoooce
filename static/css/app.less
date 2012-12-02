@@ -8,6 +8,14 @@ html {
     background: #000;
 }
 
+button.yes {
+    .button(#bf512e);
+}
+
+button.no {
+    .button(#93c52f);
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -71,20 +79,20 @@ section {
 }
 
 .col {
-    margin: 15px 15px 0 0;
+    margin: 15px 20px 0 0;
     width: 222px;
     float: left;
 }
 
 @media @retina {
     .pinimg {
-        width: 96px;
+        width: 112px;
         padding: 8px;
         margin-bottom: 10px;
     }
     .col {
         width: 112px;
-        margin: 10px 10px 0 0;
+        margin: 10px 20px 0 0;
     }
 }
 
@@ -100,7 +108,7 @@ section {
     max-width: 700px;
     width: 100%;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
     background: fade(#fff, 90%);
     h2 {
         height: 40px;
@@ -110,15 +118,10 @@ section {
         text-align: center;
     }
     button {
-        display: block;
-        border: 1px solid black;
-        padding: 4px 8px;
-        margin-top: 10px;
         width: ~'-moz-calc(50% - 5px)';
+        width: ~'-webkit-calc(50% - 5px)';
+        width: ~'calc(50% - 5px)';
         display: inline-block;
-        &.active {
-            background: red;
-        }
         &.no {
             float: right;
         }
@@ -140,10 +143,15 @@ section {
         width: 100%;
         -webkit-overflow-scrolling: touch;
         overflow: auto;
+        h2 {
+            margin-bottom: 100px;
+            text-align: center;
+        }
     }
 
     .container {
         margin: 0 auto;
+        overflow: hidden;
     }
 }
 

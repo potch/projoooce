@@ -88,7 +88,7 @@ function showUser() {
 }
 
 var colWidth = retina ? 112 : 222;
-var margin = retina ? 10 : 15;
+var margin = retina ? 20 : 15;
 
 var numCols = ~~( $(pins).innerWidth() / colWidth );
 numCols = Math.min(5, numCols);
