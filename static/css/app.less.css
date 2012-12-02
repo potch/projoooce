@@ -325,6 +325,7 @@ form input[type=password]:focus {
   display: block;
   padding-top: 15px;
   text-decoration: none;
+  text-shadow: 1px 1px 0 #000;
 }
 .get-one b {
   border-bottom: 1px solid #fff;
