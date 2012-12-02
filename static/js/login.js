@@ -1,3 +1,8 @@
+var $login = $('#login');
+
+function toggleLogin() {
+    $login.find('button').toggle(!!($login.find('input[name=user]').val() && $login.find('input[name=pass]').val()));
+}
 
 function loggedIn(user) {
     localStorage.user = user;
@@ -12,12 +17,14 @@ function loggedOut() {
     $('form').addClass('show').show();
 }
 
-$('form').on('submit', function(e) {
+$login.on('submit', function(e) {
     e.preventDefault();
     var $this = $(this);
     $.post($this.attr('action'), $this.serialize(), function(data) {
         loggedIn(data);
     });
+}).on('change blur keyup paste', 'input[name=user], input[name=pass]', function(e) {
+    toggleLogin();
 });
 
 $(document).on('click', '.logged a', function(e) {
@@ -31,4 +38,5 @@ $(function() {
     } else {
         $('form').addClass('show');
     }
+    toggleLogin();
 });

@@ -60,7 +60,6 @@ section {
 }
 
 #login {
-    //background: #bc0c4e url(../img/bg.png), url(../img/bg-top.png) repeat-x;
     background: #bc0c4e url(../img/bg.png);
     &:before {
         .border-radius(10px 10px 0 0);
@@ -72,23 +71,36 @@ section {
         top: 0;
         width: 100%;
     }
-    h1 {
-        background: url(../img/logo.png) 50% 50% no-repeat;
-        height: 114px;
+    form {
         position: absolute;
-        top: 100px;
-        text-indent: -9999px;
-        width: 100%;
+        top: 270px;
+        z-index: 2;
     }
-    .tagline {
-        color: #fff;
-        font-size: 18px;
-        font-weight: 300;
-        position: absolute;
-        top: 224px;
-        text-align: center;
-        width: 100%;
+    > div {
+        margin: 0 auto;
+        width: 400px;
     }
+}
+
+.logo {
+    background: url(../img/logo.png) 50% 50% no-repeat;
+    background-size: cover;
+    height: 57px;
+    position: absolute;
+    top: 100px;
+    text-indent: -9999px;
+    width: 263px;
+}
+
+.tagline {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    position: absolute;
+    top: 170px;
+    margin-left: 0;
+    text-align: center;
+    width: 300px;
 }
 
 .pinimg {
@@ -191,16 +203,49 @@ section {
     }
 }
 
-form {
-    visibility: hidden;
-    &.show {
-        visibility: visible;
-    }
-}
-
 .remaining {
     display: none;
     &.show {
         display: block;
+    }
+}
+
+form {
+    input[type=text],
+    input[type=password] {
+        .border-radius(3px);
+        .box-shadow(1px 1px 0 #e7e7e7 inset, 2px 2px 3px #eee inset, 0 1px 0 #fff);
+        .transition(~'.25s border, .5s box-shadow');
+        background: #f9f9f9;
+        border: 1px solid #9a887f;
+        color: #666;
+        display: block;
+        font: inherit;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0;
+        padding: 3px 5px;
+        &:focus {
+            .box-shadow(0 1px 1px rgba(0,0,0,.06) inset,
+                        0 0 8px rgba(80,160,220,.6));
+            background: #fff;
+            border-color: rgba(80,170,230,.8);
+            color: #333;
+            outline: 0;
+            outline: thin dotted \9;
+        }
+    }
+}
+
+#login {
+    button {
+        display: none;
+    }
+    input[type=text] {
+        .border-radius(3px 3px 0 0);
+    }
+    input[type=password] {
+        .border-radius(0 0 3px 3px);
+        border-top: 0;
     }
 }
