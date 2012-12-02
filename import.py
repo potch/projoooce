@@ -5,18 +5,19 @@ from common import redis
 
 
 if __name__ == '__main__':
-    users = '''cassyjmorris
-    j1l1b1
-    melaniexeinalem
-    juliettesierra
-    samanthakiser7
-    crisssy101
-    hollyrob92
-    tollilolly
-    elisemckenna
-    banebakken
-    callmemonalisa
-    mwindebank'''.split('\n')
+    users = ['cassyjmorris',
+             'j1l1b1',
+             'melaniexeinalem',
+             'juliettesierra',
+             'samanthakiser7',
+             'crisssy101',
+             'hollyrob92',
+             'tollilolly',
+             'elisemckenna',
+             'banebakken',
+             'callmemonalisa',
+             'mwindebank',
+             'cjdal16']
 
     random.shuffle(users)
 
