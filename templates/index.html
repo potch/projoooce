@@ -16,12 +16,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>pinterested</title>
+    <title>Pinterested?</title>
     {%- for stylesheet in CSS %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/' + stylesheet + ('.css' if stylesheet.endswith('.less') else '')) }}">
     {%- endfor %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='img/touch-icon-iphone4.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='img/touch-icon-iphone4.png') }}" />
+
+    <link href="" media="(device-width: 320px) and (device-height: 480px) and
+        (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+    <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='img/splash-screen-320x480.png') }}">
+    <link rel="apple-touch-startup-image" sizes="640x920" href="{{ url_for('static', filename='img/splash-screen-640x920.png') }}">
+    <link rel="apple-touch-startup-image" sizes="640x940" href="{{ url_for('static', filename='img/splash-screen-640x920.png') }}">
+    <link rel="apple-touch-startup-image" sizes="640x960" href="{{ url_for('static', filename='img/splash-screen-640x920.png') }}">
   </head>
   <body>
     <div id="app">
