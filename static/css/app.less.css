@@ -59,6 +59,9 @@ button.rate:active {
   text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 0.9);
 }
+button.rate {
+  font-size: 20px;
+}
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -571,15 +574,25 @@ form input[type=password]:focus {
   color: #999;
   font-size: 16px;
 }
-#factory .screen {
+#factory .potential {
+  margin-top: 180px;
+}
+#factory .screen,
+#matches .screen {
   margin: 0 auto;
   text-align: center;
   position: relative;
   top: 80px;
   max-width: 300px;
 }
-#factory .potential {
-  margin-top: 180px;
+#matches .screen {
+  top: 56px;
+  max-width: 100%;
+}
+#matches .matches {
+  -webkit-box-shadow: 0 0 5px #999;
+  -moz-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
 }
 .top {
   -webkit-border-radius: 10px 10px 0 0;
@@ -598,7 +611,35 @@ form input[type=password]:focus {
   position: absolute;
   top: -18px;
   text-align: center;
+  z-index: 2;
   width: 100%;
+}
+.match {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  font-weight: 400;
+  text-align: left;
+  padding: 15px;
+}
+.match .icon,
+.match .user {
+  display: inline-block;
+  vertical-align: middle;
+}
+.match .icon {
+  background-position: 50% 50%;
+  height: 64px;
+  margin-right: 15px;
+  width: 64px;
+}
+.match .user {
+  line-height: 64px;
+}
+.match:first-child {
+  background-color: #ffffcc;
+  -webkit-box-shadow: 0 5px #333;
+  -moz-box-shadow: 0 5px #333;
+  box-shadow: 0 5px #333;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
   #login {

@@ -18,6 +18,9 @@ button {
     &.yes, &.rate {
         .button(#93c52f);
     }
+    &.rate {
+        font-size: 20px;
+    }
 }
 
 body {
@@ -450,6 +453,12 @@ form {
         color: #999;
         font-size: 16px;
     }
+    .potential {
+        margin-top: 180px;
+    }
+}
+
+#factory, #matches {
     .screen {
         margin: 0 auto;
         text-align: center;
@@ -457,8 +466,15 @@ form {
         top: 80px;
         max-width: 300px;
     }
-    .potential {
-        margin-top: 180px;
+}
+
+#matches {
+    .screen {
+        top: 56px;
+        max-width: 100%;
+    }
+    .matches {
+        .box-shadow(~'0 0 5px #999');
     }
 }
 
@@ -473,9 +489,34 @@ form {
     position: absolute;
     top: -18px;
     text-align: center;
+    z-index: 2;
     width: 100%;
 }
 
+.match {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    font-weight: 400;
+    text-align: left;
+    padding: 15px;
+    .icon, .user {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .icon {
+        background-position: 50% 50%;
+        height: 64px;
+        margin-right: 15px;
+        width: 64px;
+    }
+    .user {
+        line-height: 64px;
+    }
+    &:first-child {
+        background-color: lighten(yellow, 40%);
+        .box-shadow(~'0 5px #333');
+    }
+}
 
 @media @retina {
     #login {

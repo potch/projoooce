@@ -91,11 +91,19 @@
         </section>
 
         <section id="matches">
-            <h1>Your Matches</h1>
-            <h2>Turning interests into matches!</h2>
-            <p>This could take a while. We&rsquo;ll let you know when we find something.</p>
-            <p>Want more potential matches?</p>
-            <button class="button rate">Rate more people</button>
+            <h1 class="top">Your Matches</h1>
+            <div class="screen">
+                <div class="matches">
+                    {% for username, img in matches.iteritems() %}
+                        <div class="match">
+                            <div class="icon" style="background-image:url(http://media-cache-ec5.pinterest.com/avatars/{{ img }})"></div>
+                            <div class="user">{{ username }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <p class="potential">Want more potential matches?</p>
+                <button class="button rate">Rate more people</button>
+            </div>
         </section>
 
         <section id="messages">

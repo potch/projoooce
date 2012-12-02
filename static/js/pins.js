@@ -79,7 +79,9 @@ function showUser() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (!r.user) {
             showPane('factory');
-            return;
+            setTimeout(function() {
+                showPane('matches');
+            }, 2000);
         }
         $('.remaining-num').text(r.remaining);
         $('.remaining-plural').toggle(r.remaining !== 1);
@@ -104,10 +106,6 @@ $('#pins button').on(actEvent, function() {
     });
 });
 
-if (localStorage.user) {
-    //$.get('/heygirlilikeartsybakedgoodstoo/' + localStorage.user, {
-    //});
-}
 
 var colWidth = retina ? 112 : 222;
 var margin = retina ? 20 : 15;
