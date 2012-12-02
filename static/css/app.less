@@ -4,15 +4,16 @@
     .border-box();
 }
 
-html {
+html, body {
     background: #000;
-}
-
-button.yes {
-    .button(#bf512e);
+    font-size: 14px;
 }
 
 button.no {
+    .button(#bf512e);
+}
+
+button.yes {
     .button(#93c52f);
 }
 
@@ -170,7 +171,7 @@ section {
         width: ~'-webkit-calc(50% - 5px)';
         width: ~'calc(50% - 5px)';
         display: inline-block;
-        &.no {
+        &.yes {
             float: right;
         }
     }

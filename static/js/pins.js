@@ -75,7 +75,6 @@ var currentUser;
 
 
 function showUser() {
-    mortar.clear();
     $('#pins .menu').removeClass('show');
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (!r) {
@@ -93,9 +92,13 @@ function showUser() {
 }
 
 $('#pins .yes').click(function() {
+    mortar.clear();
+    $('#pins .menu').removeClass('show');
     $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, {
         yes: 1,
         me: localStorage.user
+    }, function() {
+        showUser();
     });
 });
 
