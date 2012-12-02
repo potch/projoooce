@@ -91,6 +91,8 @@ function getRandom(list) {
 
 function showUser() {
     $('#pins .menu').removeClass('show');
+    $('#pins').addClass('loading');
+    $('#prompt').hide();
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (!r.user) {
             showPane('factory');
@@ -106,6 +108,8 @@ function showUser() {
         $('#pins .yes').text(getRandom(yesLabels));
         $('#pins .no').text(getRandom(noLabels));
         $('#pins .menu').addClass('show');
+        $('#pins').removeClass('loading');
+        $('#prompt').show();
     });
 }
 
