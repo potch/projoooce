@@ -92,13 +92,14 @@ function showUser() {
     });
 }
 
-$('#pins .yes').on(actEvent, function() {
+$('#pins button').on(actEvent, function() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
-    $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, {
-        yes: 1,
-        me: localStorage.user
-    }, function() {
+    var data = {me: localStorage.user};
+    if ($(this).hasClass('yes')) {
+        data.yes = 1;
+    }
+    $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, data, function() {
         showUser();
     });
 });

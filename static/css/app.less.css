@@ -300,6 +300,7 @@ section.right {
   position: absolute;
 }
 #logged a {
+  color: #fff;
   margin-left: 1em;
 }
 .logo {

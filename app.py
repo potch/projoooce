@@ -143,9 +143,9 @@ class HeyGirlILikeArtsyBakedGoodsTooAPI(MethodView):
                 key = 'users:%s:match:unread' % me
                 if not redis.sismember(key, me):
                     redis.sadd(key, girl)
-        else:
-            # Girl, you an ugo. My eyes are burning.
-            redis.sadd('users:%s:ugos' % me, girl)
+
+        # Girl, I'm over you.
+        redis.sadd('users:%s:ugos' % me, girl)
 
         return Response(json.dumps({'success': True}))
 
