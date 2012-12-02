@@ -64,7 +64,7 @@ class UserAPI(MethodView):
         if not request.form.get('pass'):
             return Response(status_code=403)
         user = request.form.get('user').lower()
-        if user_l and not redis.sismember('users', user):
+        if user and not redis.sismember('users', user):
             redis.sadd('users', user)
         return Response(user)
 

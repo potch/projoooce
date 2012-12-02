@@ -6,9 +6,6 @@ from pyquery import PyQuery as pq
 from common import redis
 
 
-PINS_DIR = 'static/img/pins/'
-
-
 def get_pins(user, force=False):
     pins = redis.smembers('users:%s:pins' % user)
     if force or not pins:
@@ -37,22 +34,9 @@ def scrape_pins(user):
 
 
 def download_pins(user):
-    if not os.path.exists(PINS_DIR):
-        os.makedirs(PINS_DIR)
-
     pins = scrape_pins(user)
-    new_pins = dict(pins)
-    new_pins['pins'] = []
 
     for url in pins['pins']:
-        _, fn = url.rsplit('/', 1)
+        redis.sadd('users:%s:pins' % user, url)
 
-        print url
-        r = requests.get(url)
-        open(PINS_DIR + fn, 'w').write(r.content)
-
-        redis.sadd('users:%s:pins' % user, fn)
-
-        new_pins['pins'].append(fn)
-
-    return new_pins
+    return pins

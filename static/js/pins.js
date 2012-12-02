@@ -75,7 +75,7 @@ function showUser() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         $('.who').text(r.user);
         r.pins.forEach(function(i) {
-            loadImg('static/img/pins/' + i).then(mortar.append);
+            loadImg(i).then(mortar.append);
         });
     });
 }
