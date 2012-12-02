@@ -152,11 +152,8 @@ section:before {
   width: 100%;
   height: 100%;
   z-index: 10;
-  -moz-transition: .3s opacity ease-out;
-  -webkit-transition: .3s opacity ease-out;
-  transition: .3s opacity ease-out;
 }
-section:after {
+section .throbber {
   content: '';
   position: absolute;
   z-index: 11;
@@ -165,27 +162,30 @@ section:after {
   bottom: 0;
   right: 0;
   margin: auto;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: none;
   -webkit-border-radius: 32px;
   -moz-border-radius: 32px;
   -ms-border-radius: 32px;
   -o-border-radius: 32px;
   border-radius: 32px;
-  border: 8px solid #fff;
+  border: 6px solid #fff;
   border-color: #fff transparent;
   -webkit-animation: spin 1s linear infinite;
   -moz-animation: spin 1s linear infinite;
   -ms-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
+section.loading .throbber {
+  display: block;
+}
 section.loading:before {
   pointer-events: auto;
   opacity: 1;
-}
-section.loading:after {
-  display: block;
+  -moz-transition: .3s opacity ease-out;
+  -webkit-transition: .3s opacity ease-out;
+  transition: .3s opacity ease-out;
 }
 @-webkit-keyframes spin {
   from {
@@ -797,8 +797,14 @@ form input[type=password]:focus {
   color: #666;
 }
 #matches .match .user {
-  float: right;
   margin-right: 15px;
+}
+#matches .match .icon {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 .top {
   -webkit-border-radius: 10px 10px 0 0;
