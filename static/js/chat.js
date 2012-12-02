@@ -1,7 +1,12 @@
-function initChat() {
-    $('#chat-form').remove();
+var chatShown = false;
 
-    showPane('chat');
+function initChat() {
+    if (chatShown) {
+        showPane('chat');
+        return;
+    }
+    chatShown = true;
+
     var $cf = $('<form>', {'id': 'chat-form'});
     $cf.append($('<input>', {'type': 'text', 'placeholder': 'Say something sweet...'}));
     $cf.append($('<button>', {'text': '+'}));
