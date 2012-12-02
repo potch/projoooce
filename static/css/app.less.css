@@ -2,6 +2,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 html,
 body {
@@ -194,7 +195,8 @@ section.right {
 }
 .tagline {
   color: #fff;
-  font-size: 18px;
+  font-size: 13px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
   font-weight: 300;
   margin-left: 0;
   text-align: center;
@@ -322,7 +324,7 @@ form input[type=password] {
   -moz-transition: .25s border, .5s box-shadow;
   -webkit-transition: .25s border, .5s box-shadow;
   transition: .25s border, .5s box-shadow;
-  background: #f9f9f9;
+  background: #fff;
   border: 1px solid #666;
   color: #666;
   display: block;
@@ -338,10 +340,8 @@ form input[type=password]:focus {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset, 0 0 8px rgba(80, 160, 220, 0.6);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset, 0 0 8px rgba(80, 160, 220, 0.6);
   background: #fff;
-  border-color: rgba(80, 170, 230, 0.8);
   color: #333;
   outline: 0;
-  outline: thin dotted \9;
 }
 #login button {
   display: none;
