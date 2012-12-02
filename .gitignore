@@ -4,3 +4,4 @@ pip-log.txt
 .DS_Store
 settings_*.py
 *.yml
+static/img/pins/*

@@ -73,6 +73,6 @@ var mortar = new Mortar(numCols, pinsEl);
 $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
     $('.who').text(r.user);
     r.pins.forEach(function(i) {
-        loadImg(i).then(mortar.append);
+        loadImg('static/img/pins/' + i).then(mortar.append);
     });
 });

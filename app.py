@@ -6,8 +6,7 @@ import sys
 from flask import Flask, Response, abort, request, render_template
 from flask.views import MethodView
 
-from redis import Redis
-
+from common import redis
 from pinscrape import get_pins
 
 try:
@@ -15,13 +14,7 @@ try:
 except ImportError:
     import settings
 
-
 app = Flask(__name__)
-
-redis = Redis(host=settings.REDIS_HOST,
-              port=settings.REDIS_PORT,
-              db=settings.REDIS_DB,
-              password=settings.REDIS_PASS)
 
 
 def jsonify(f):
@@ -70,8 +63,8 @@ class UserAPI(MethodView):
         """Create a new user."""
         if not request.form.get('pass'):
             return Response(status_code=403)
-        user = request.form.get('user')
-        if user and not redis.sismember('users', user):
+        user = request.form.get('user').lower()
+        if user_l and not redis.sismember('users', user):
             redis.sadd('users', user)
         return Response(user)
 
