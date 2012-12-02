@@ -198,9 +198,9 @@ section.right {
 }
 #login #whoami {
   opacity: 0;
-  -moz-transition-duration: .5s, .5s, .5s, .3s;
-  -webkit-transition-duration: .5s, .5s, .5s, .3s;
-  transition-duration: .5s, .5s, .5s, .3s;
+  -moz-transition-duration: .7s, .7s, .7s, .7s;
+  -webkit-transition-duration: .7s, .7s, .7s, .7s;
+  transition-duration: .7s, .7s, .7s, .7s;
   -moz-transition-property: -moz-transform, transform, -webkit-transform, opacity;
   -webkit-transition-property: -moz-transform, transform, -webkit-transform, opacity;
   transition-property: -moz-transform, transform, -webkit-transform, opacity;
@@ -263,6 +263,13 @@ section.right {
 }
 #login.logged-in form {
   display: none;
+}
+#login.logged-in .logo {
+  -webkit-transform: scale(.9) translate(0, 4px);
+  -moz-transform: scale(.9) translate(0, 4px);
+  -ms-transform: scale(.9) translate(0, 4px);
+  -o-transform: scale(.9) translate(0, 4px);
+  transform: scale(.9) translate(0, 4px);
 }
 #login.logged-in #whoami {
   opacity: 1;
@@ -371,6 +378,15 @@ section.right {
   width: 263px;
   margin: 0 auto;
   position: relative;
+<<<<<<< HEAD
+=======
+  -moz-transition-duration: .3s, .3s, .3s;
+  -webkit-transition-duration: .3s, .3s, .3s;
+  transition-duration: .3s, .3s, .3s;
+  -moz-transition-property: -moz-transform, transform, -webkit-transform;
+  -webkit-transition-property: -moz-transform, transform, -webkit-transform;
+  transition-property: -moz-transform, transform, -webkit-transform;
+>>>>>>> 97942847a0a1656d258832b278ce320f90ce7509
 }
 .tagline {
   color: #fff;
@@ -464,6 +480,7 @@ section.right {
   overflow: auto;
 }
 #pins .scroller h2 {
+<<<<<<< HEAD
   display: none;
   text-align: center;
   color: #888888;
@@ -474,6 +491,13 @@ section.right {
 }
 #pins .scroller h2 em {
   color: #333;
+=======
+  text-align: center;
+  font-weight: normal;
+  color: #aaa;
+  text-shadow: 0 1px #fff;
+  margin-bottom: 80px;
+>>>>>>> 97942847a0a1656d258832b278ce320f90ce7509
 }
 #pins .container {
   margin: 0 auto;
@@ -484,7 +508,16 @@ section.right {
   clear: both;
 }
 .remaining {
+  margin: 20px 40px 8px;
+  font-size: 16px;
+  color: #aaa;
+  text-shadow: 0 1px #fff;
+  text-align: center;
   display: none;
+}
+.remaining .remaining-num {
+  color: #bc0c4e;
+  font-weight: bold;
 }
 .remaining.show {
   display: block;
