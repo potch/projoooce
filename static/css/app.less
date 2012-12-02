@@ -223,7 +223,11 @@ section {
 
     .container {
         margin: 0 auto;
-        overflow: hidden;
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
     }
 }
 
