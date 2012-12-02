@@ -33,12 +33,14 @@ function Mortar(numCols, parent) {
 
     parent = $(parent);
 
-    for (var i=0; i<numCols; i++) {
-        cols.push({
-            y: 0,
-            el: $("<div class='col'>")
-        });
-        parent.append(cols[i].el);
+    function initCols() {
+        for (var i=0; i<numCols; i++) {
+            cols.push({
+                y: 0,
+                el: $("<div class='col'>")
+            });
+            parent.append(cols[i].el);
+        }
     }
 
     self.append = function(img) {
@@ -58,6 +60,24 @@ function Mortar(numCols, parent) {
         }, 0);
 
     };
+
+    self.clear = function() {
+        cols = [];
+        parent.empty();
+        initCols();
+    }
+
+    self.clear();
+}
+
+function showUser() {
+    mortar.clear();
+    $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
+        $('.who').text(r.user);
+        r.pins.forEach(function(i) {
+            loadImg('static/img/pins/' + i).then(mortar.append);
+        });
+    });
 }
 
 var colWidth = retina ? 112 : 222;
@@ -69,10 +89,3 @@ numCols = Math.min(5, numCols);
 pinsEl.width(numCols * (colWidth + margin) - margin);
 
 var mortar = new Mortar(numCols, pinsEl);
-
-$.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
-    $('.who').text(r.user);
-    r.pins.forEach(function(i) {
-        loadImg('static/img/pins/' + i).then(mortar.append);
-    });
-});

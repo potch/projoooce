@@ -3,6 +3,7 @@ function loggedIn(user) {
     localStorage.user = user;
     $('form').hide().after($('<div>', {'class': 'logged', 'text': 'You are ' + user + '!'}));
     $('.logged').append(' ').append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}));
+    wait(1000).then(function() { showPane('pins'); showUser() });
 }
 
 function loggedOut() {
@@ -27,7 +28,6 @@ $(document).on('click', '.logged a', function(e) {
 $(function() {
     if (localStorage.user) {
         loggedIn(localStorage.user);
-        wait(1000).then(function() { showPane('lookingfor'); });
     } else {
         $('form').addClass('show');
     }

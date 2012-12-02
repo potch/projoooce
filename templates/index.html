@@ -21,30 +21,33 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
   <body>
-    <section id="login">
-        <form action="/users/" method="post">
-            <input type="text" name="user" required>
-            <input type="password" name="pass" required>
-            <button>Find my soulmate</button>
-        </form>
-    </section>
+    <div id="app">
+        <section id="login">
+            <form action="/users/" method="post">
+                <input type="text" name="user" required>
+                <input type="password" name="pass" required>
+                <button>Find my soulmate</button>
+            </form>
+        </section>
 
-    <section id="lookingfor">
-        <h1>Looking For</h1>
-    </section>
+        <section id="lookingfor">
+            <h1>Looking For</h1>
+        </section>
 
-    <section id="pins">
-        <div class="who"></div>
-        <div class="container"></div>
-    </section>
+        <section id="pins">
+            <div class="who"></div>
+            <div class="scroller"><div class="container"></div></div>
+        </section>
 
-    <section id="matches">
-        <h1>Matches</h1>
-    </section>
+        <section id="matches">
+            <h1>Matches</h1>
+        </section>
 
-    <section id="messages">
-        <h1>Messages</h1>
-    </section>
+        <section id="messages">
+            <h1>Messages</h1>
+        </section>
+
+    </div>
 
     {%- for script in JS %}
     <script type="text/javascript" src="{{ script if script.startswith(('//', 'http')) else url_for('static', filename='js/' + script) }}"></script>
