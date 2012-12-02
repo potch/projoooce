@@ -60,11 +60,11 @@ body {
 body,
 #app,
 section {
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
-  -ms-border-radius: 10px 10px 0 0;
-  -o-border-radius: 10px 10px 0 0;
-  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
 }
 #app {
   position: absolute;
@@ -111,8 +111,38 @@ section.right {
   transition-property: -moz-transform, transform, -webkit-transform;
 }
 #login {
-  background-color: #bc0c4e;
-  z-index: 1;
+  background: #bc0c4e url(../img/bg.png);
+}
+#login:before {
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  background: url(../img/bg-top.png) repeat-x;
+  content: "";
+  display: block;
+  height: 234px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#login h1 {
+  background: url(../img/logo.png) 50% 50% no-repeat;
+  height: 114px;
+  position: absolute;
+  top: 100px;
+  text-indent: -9999px;
+  width: 100%;
+}
+#login .tagline {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  position: absolute;
+  top: 224px;
+  text-align: center;
+  width: 100%;
 }
 .pinimg {
   background: #fff;
@@ -138,6 +168,12 @@ section.right {
   float: left;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
+  #login {
+    background-size: 83px 83px;
+  }
+  #login:before {
+    background-size: 20px 234px;
+  }
   .pinimg {
     width: 112px;
     padding: 8px;
