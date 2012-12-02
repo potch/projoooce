@@ -10,16 +10,20 @@ html, body {
     font-size: 14px;
 }
 
-button.no {
-    .button(#bf512e);
-}
-
 button {
     &.yes, &.rate {
         .button(#93c52f);
     }
     &.rate {
         font-size: 20px;
+    }
+    &.no {
+        .button(#bf512e);
+    }
+    &.back {
+        .button(#eee);
+        color: #333;
+        padding: 5px 15px 4px;
     }
 }
 
@@ -516,9 +520,17 @@ form {
     width: 100%;
 }
 
+.back {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    z-index: 3;
+}
+
 .match {
     background: #fff;
     border-bottom: 1px solid #ccc;
+    display: block;
     font-weight: 400;
     text-align: left;
     padding: 15px;
@@ -538,6 +550,55 @@ form {
     &:first-child {
         background-color: lighten(yellow, 40%);
         .box-shadow(~'0 5px #333');
+    }
+}
+
+#chat-text {
+    font-size: 18px;
+    padding: 65px 15px 15px;
+    em {
+        color: #999;
+        font-style: normal;
+    }
+    div + div {
+        margin-top: 2px;
+    }
+}
+
+#chat-form {
+    .border-radius(0 0 10px 10px);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.8)));
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    background-image: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    padding: 15px;
+    input {
+        .box-shadow(1px 1px 0 #333 inset, 2px 2px 3px #000 inset);
+        .border-radius(5px);
+        background: #000;
+        color: #fff;
+        width: 100%;
+    }
+    button {
+        .border-radius(0 4px 4px 0);
+        .box-shadow(1px 1px 0 #333, 1px 1px 2px #000);
+        background: #555;
+        border: 0;
+        color: #333;
+        font-size: 32px;
+        text-shadow: 0 1px 1px #666;
+        padding: 2px 10px 1px;
+        float: right;
+        top: 17px;
+        right: 16px;
+        position: absolute;
+        &:active, &:focus {
+            background: #333;
+            color: #000;
+        }
     }
 }
 

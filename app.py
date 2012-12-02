@@ -51,8 +51,7 @@ def pins(user=None, shuffle=False):
         return {}
 
 
-@app.route('/')
-def index():
+def home():
     matches = {'juliettesierra': 'juliettesierra_1344218153_600.jpg',
                'hollyrob92': 'hollyrob92-1353702856_600.jpg',
                'tollilolly': 'tollilolly-52_600.jpg',
@@ -63,6 +62,16 @@ def index():
         if len(random_matches) < 3:
             random_matches[k] = v
     return render_template('index.html', matches=random_matches)
+
+
+@app.route('/')
+def index():
+    return home()
+
+
+@app.route('/chat')
+def chat():
+    return home()
 
 
 class UserAPI(MethodView):
