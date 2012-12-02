@@ -88,6 +88,9 @@ button.back:active {
   text-shadow: -1px -1px rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 0.9);
 }
+button.back:active {
+  color: #666;
+}
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -734,6 +737,12 @@ form input[type=password]:focus {
   color: #fff;
   width: 100%;
 }
+#chat-form input:-moz-placeholder {
+  color: #666;
+}
+#chat-form input::-webkit-input-placeholder {
+  color: #666;
+}
 #chat-form button {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -758,6 +767,12 @@ form input[type=password]:focus {
 #chat-form button:focus {
   background: #333;
   color: #000;
+}
+input[placeholder]:-moz-placeholder:focus {
+  color: transparent !important;
+}
+input[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
   #login {

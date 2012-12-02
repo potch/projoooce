@@ -24,6 +24,9 @@ button {
         .button(#eee);
         color: #333;
         padding: 5px 15px 4px;
+        &:active {
+            color: #666;
+        }
     }
 }
 
@@ -581,6 +584,12 @@ form {
         background: #000;
         color: #fff;
         width: 100%;
+        &:-moz-placeholder {
+            color: #666;
+        }
+        &::-webkit-input-placeholder {
+            color: #666;
+        }
     }
     button {
         .border-radius(0 4px 4px 0);
@@ -599,6 +608,16 @@ form {
             background: #333;
             color: #000;
         }
+    }
+}
+
+input[placeholder] {
+    &:-moz-placeholder:focus {
+        color: transparent !important;
+    }
+    // Yes, the order matters. WebKit is clownshoes.
+    &:focus::-webkit-input-placeholder {
+        color: transparent !important;
     }
 }
 

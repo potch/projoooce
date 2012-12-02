@@ -3,7 +3,7 @@ function initChat() {
 
     showPane('chat');
     var $cf = $('<form>', {'id': 'chat-form'});
-    $cf.append($('<input>', {'type': 'text', 'placeholder': 'Make it happen'}));
+    $cf.append($('<input>', {'type': 'text', 'placeholder': 'Say something sweet...'}));
     $cf.append($('<button>', {'text': '+'}));
     $('#chat-input').append($cf);
 
@@ -19,6 +19,7 @@ function initChat() {
         var text = $('input', this).val();
         var name = localStorage.user;
         fb.push({name:name, text:text});
+        $('input', this).val('');
         return false;
     });
 }
