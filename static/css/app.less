@@ -115,7 +115,7 @@ section {
 
     #whoami {
         opacity: 0;
-        .transition-duration(~'.5s, .5s, .5s, .3s');
+        .transition-duration(~'.7s, .7s, .7s, .7s');
         .transition-property(~'-moz-transform, transform, -webkit-transform, opacity');
         .transform(~'translate(0, 500%) translateZ(0)');
 
@@ -172,6 +172,9 @@ section {
         form {
             display: none;
         }
+        .logo {
+            .transform(~'scale(.9) translate(0, 4px)');
+        }
         #whoami {
             opacity: 1;
             .transform(~'translate(0, 0) translateZ(0)');
@@ -185,6 +188,7 @@ section {
 }
 .smiley {
     cursor: pointer;
+
     width: 118px;
     height: 120px;
     margin: 10px 0 0 0;
@@ -267,7 +271,8 @@ section {
     width: 263px;
     margin: 0 auto;
     position: relative;
-    .transform(scale(0.95));
+    .transition-duration(~'.3s, .3s, .3s');
+    .transition-property(~'-moz-transform, transform, -webkit-transform');
 }
 
 .tagline {
@@ -354,9 +359,13 @@ section {
         -webkit-overflow-scrolling: touch;
         overflow: auto;
         h2 {
-            margin-bottom: 100px;
             text-align: center;
+            font-weight: normal;
+            color: #aaa;
+            text-shadow: 0 1px #fff;
+            margin-bottom: 80px;
         }
+
     }
 
     .container {
@@ -370,6 +379,15 @@ section {
 }
 
 .remaining {
+    margin: 20px 40px 8px;
+    font-size: 16px;
+    .remaining-num {
+        color: #bc0c4e;
+        font-weight: bold;
+    }
+    color: #aaa;
+    text-shadow: 0 1px #fff;
+    text-align: center;
     display: none;
     &.show {
         display: block;
