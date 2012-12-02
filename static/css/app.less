@@ -215,10 +215,10 @@ form {
     input[type=text],
     input[type=password] {
         .border-radius(3px);
-        .box-shadow(1px 1px 0 #e7e7e7 inset, 2px 2px 3px #eee inset, 0 1px 0 #fff);
+        .box-shadow(1px 1px 0 #ccc inset, 2px 2px 3px #eee inset);
         .transition(~'.25s border, .5s box-shadow');
         background: #f9f9f9;
-        border: 1px solid #9a887f;
+        border: 1px solid #666;
         color: #666;
         display: block;
         font: inherit;
@@ -241,12 +241,28 @@ form {
 #login {
     button {
         display: none;
+        margin-top: 15px;
     }
     input[type=text] {
-        .border-radius(3px 3px 0 0);
+        .border-radius(5px 5px 0 0);
     }
     input[type=password] {
-        .border-radius(0 0 3px 3px);
+        .border-radius(0 0 5px 5px);
         border-top: 0;
+    }
+}
+
+.get-one {
+    .dark-text-shadow;
+    color: #d8a9ba;
+    display: block;
+    padding-top: 15px;
+    text-decoration: none;
+    b {
+        border-bottom: 1px solid #fff;
+        color: #fff;
+    }
+    &:hover {
+        color: lighten(#d8a9ba, 10%);
     }
 }

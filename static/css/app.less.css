@@ -274,14 +274,14 @@ form input[type=password] {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 1px 1px 0 #e7e7e7 inset, 2px 2px 3px #eeeeee inset, 0 1px 0 #ffffff;
-  -moz-box-shadow: 1px 1px 0 #e7e7e7 inset, 2px 2px 3px #eeeeee inset, 0 1px 0 #ffffff;
-  box-shadow: 1px 1px 0 #e7e7e7 inset, 2px 2px 3px #eeeeee inset, 0 1px 0 #ffffff;
+  -webkit-box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
+  -moz-box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
+  box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
   -moz-transition: .25s border, .5s box-shadow;
   -webkit-transition: .25s border, .5s box-shadow;
   transition: .25s border, .5s box-shadow;
   background: #f9f9f9;
-  border: 1px solid #9a887f;
+  border: 1px solid #666;
   color: #666;
   display: block;
   font: inherit;
@@ -303,19 +303,34 @@ form input[type=password]:focus {
 }
 #login button {
   display: none;
+  margin-top: 15px;
 }
 #login input[type=text] {
-  -webkit-border-radius: 3px 3px 0 0;
-  -moz-border-radius: 3px 3px 0 0;
-  -ms-border-radius: 3px 3px 0 0;
-  -o-border-radius: 3px 3px 0 0;
-  border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 #login input[type=password] {
-  -webkit-border-radius: 0 0 3px 3px;
-  -moz-border-radius: 0 0 3px 3px;
-  -ms-border-radius: 0 0 3px 3px;
-  -o-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
   border-top: 0;
+}
+.get-one {
+  text-shadow: 0 1px 0 #000;
+  color: #d8a9ba;
+  display: block;
+  padding-top: 15px;
+  text-decoration: none;
+}
+.get-one b {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.get-one:hover {
+  color: #e8ccd6;
 }

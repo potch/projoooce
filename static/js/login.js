@@ -1,7 +1,9 @@
 var $login = $('#login');
 
 function toggleLogin() {
-    $login.find('button').toggle(!!($login.find('input[name=user]').val() && $login.find('input[name=pass]').val()));
+    var showButton = !!($login.find('input[name=user]').val() && $login.find('input[name=pass]').val());
+    $login.find('button').toggle(showButton);
+    $login.find('.get-one').toggle(!showButton);
 }
 
 function loggedIn(user) {
