@@ -52,11 +52,14 @@ def pins(user=None, shuffle=False):
 
 
 def home():
-    matches = {'juliettesierra': 'juliettesierra_1344218153_600.jpg',
-               'hollyrob92': 'hollyrob92-1353702856_600.jpg',
-               'tollilolly': 'tollilolly-52_600.jpg',
-               'melaniexeinalem': 'melaniexeinalem-87_600.jpg',
-               'mwindebank': 'mwindebank-1347468925_600.jpg'}
+    matches = {'mwindebank': 'mwindebank-1347468925_600.jpg',
+               'juliettesierra': 'juliettesierra_1344218153_600.jpg',
+               'callmemonalisa': 'callmemonalisa_1344993669_600.jpg',
+               #'cassyjmorris': 'cassyjmorris-1346242050_600.jpg',
+               #'hollyrob92': 'hollyrob92-1353702856_600.jpg',
+               #'tollilolly': 'tollilolly-52_600.jpg',
+               #'melaniexeinalem': 'melaniexeinalem-87_600.jpg'
+               }
     random_matches = {}
     for k, v in matches.iteritems():
         if len(random_matches) < 3:
