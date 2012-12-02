@@ -101,7 +101,7 @@ section {
     .screen {
         margin: 0 auto;
         position: relative;
-        top: 80px;
+        top: 120px;
     }
 }
 
@@ -118,7 +118,6 @@ section {
     width: 263px;
     margin: 0 auto;
     position: relative;
-    .transform(scale(0.95));
 }
 
 .tagline {
@@ -220,8 +219,16 @@ section {
         -webkit-overflow-scrolling: touch;
         overflow: auto;
         h2 {
-            margin-bottom: 100px;
+            display: none;
             text-align: center;
+            color: #888888;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 120px;
+            text-shadow: 1px 1px #FFFFFF;
+            em {
+                color: #333;
+            }
         }
     }
 
@@ -246,7 +253,7 @@ form {
     input[type=text],
     input[type=password] {
         .border-radius(3px);
-        .box-shadow(1px 1px 0 #ccc inset, 2px 2px 3px #eee inset);
+        //.box-shadow(1px 1px 0 #ccc inset, 2px 2px 3px #eee inset);
         .transition(~'.25s border, .5s box-shadow');
         background: #fff;
         border: 1px solid #666;
@@ -276,7 +283,8 @@ form {
     }
     input[type=text] {
         .border-radius(5px 5px 0 0);
-        border-bottom: 0;
+        border-bottom: 1px solid #ddd !important;
+        //.box-shadow(0 2px 2px #aaa inset);
     }
     input[type=password] {
         .border-radius(0 0 5px 5px);

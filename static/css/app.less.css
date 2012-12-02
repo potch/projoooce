@@ -178,7 +178,7 @@ section.right {
 #login .screen {
   margin: 0 auto;
   position: relative;
-  top: 80px;
+  top: 120px;
 }
 #logged a {
   margin-left: 1em;
@@ -192,11 +192,6 @@ section.right {
   width: 263px;
   margin: 0 auto;
   position: relative;
-  -webkit-transform: scale(0.95);
-  -moz-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  -o-transform: scale(0.95);
-  transform: scale(0.95);
 }
 .tagline {
   color: #fff;
@@ -304,8 +299,16 @@ section.right {
   overflow: auto;
 }
 #pins .scroller h2 {
-  margin-bottom: 100px;
+  display: none;
   text-align: center;
+  color: #888888;
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 120px;
+  text-shadow: 1px 1px #FFFFFF;
+}
+#pins .scroller h2 em {
+  color: #333;
 }
 #pins .container {
   margin: 0 auto;
@@ -328,9 +331,6 @@ form input[type=password] {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
-  -moz-box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
-  box-shadow: 1px 1px 0 #cccccc inset, 2px 2px 3px #eeeeee inset;
   -moz-transition: .25s border, .5s box-shadow;
   -webkit-transition: .25s border, .5s box-shadow;
   transition: .25s border, .5s box-shadow;
@@ -363,7 +363,7 @@ form input[type=password]:focus {
   -ms-border-radius: 5px 5px 0 0;
   -o-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
-  border-bottom: 0;
+  border-bottom: 1px solid #ddd !important;
 }
 #login input[type=password] {
   -webkit-border-radius: 0 0 5px 5px;

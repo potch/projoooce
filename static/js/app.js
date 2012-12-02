@@ -25,8 +25,10 @@ order.forEach(function(p) {
     if (p != currentPane) {
         panes[p].addClass(rel(p, currentPane));
     }
-    function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
-    $(panes[p]).bind( 'touchmove' , stopScrolling  );
+    if(!panes[p].hasClass('toscroll')) {
+        function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
+        $(panes[p]).bind( 'touchmove' , stopScrolling  );
+    }
 })
 
 function showPane(newPane) {
