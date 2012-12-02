@@ -44,4 +44,8 @@ $(function() {
         $('form').addClass('show');
     }
     toggleLogin();
+
+    if (window.location.hash.indexOf('#logout') > -1) {
+        loggedOut();
+    }
 });
