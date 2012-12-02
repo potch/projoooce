@@ -102,6 +102,12 @@ $('#pins .yes').click(function() {
     });
 });
 
+if (localStorage.user) {
+    $.get('/heygirlilikeartsybakedgoodstoo/' + localStorage.user, {
+
+    });
+}
+
 var colWidth = retina ? 112 : 222;
 var margin = retina ? 20 : 15;
 
