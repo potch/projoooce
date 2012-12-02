@@ -10,6 +10,18 @@ function escape_(s) {
             .replace(/'/g, '&#39;').replace(/"/g, '&#34;');
 }
 
+var yesLabels = [
+    'I\'m smitten',
+    '<3'
+];
+
+var noLabels = [
+    'Not feelin\' it',
+    'Not as such',
+    'NOPE'
+];
+
+
 function loadImg(src) {
     var d = $.Deferred();
     var i = new Image();
@@ -73,6 +85,9 @@ function Mortar(numCols, parent) {
 
 var currentUser;
 
+function getRandom(list) {
+    return list[~~(Math.random() * list.length)];
+}
 
 function showUser() {
     $('#pins .menu').removeClass('show');
@@ -88,6 +103,8 @@ function showUser() {
             loadImg(i).then(mortar.append);
         });
         currentUser = r.user;
+        $('#pins .yes').text(getRandom(yesLabels));
+        $('#pins .no').text(getRandom(noLabels));
         $('#pins .menu').addClass('show');
     });
 }
@@ -105,7 +122,7 @@ $('#pins button').on(actEvent, function() {
 });
 
 // Show matches!
-$('#factory .potential').on('click', function() {
+$('#factory .potential, #factory .luv').on('click', function() {
     showPane('matches');
 });
 

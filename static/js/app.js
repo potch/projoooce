@@ -4,7 +4,6 @@ var order = [
         'pins',
         'factory',
         'matches',
-        'messages',
         'chat'
         ];
 
