@@ -1,8 +1,8 @@
 var chatShown = false;
 
 function initChat() {
+    showPane('chat');
     if (chatShown) {
-        showPane('chat');
         return;
     }
     chatShown = true;
@@ -12,7 +12,7 @@ function initChat() {
     $cf.append($('<button>', {'text': '+'}));
     $('#chat-input').append($cf);
 
-    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'def');
+    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'ghi');
 
     fb.on('child_added', function (snapshot) {
         var message = snapshot.val();
