@@ -419,6 +419,15 @@ section {
     margin: 0 auto;
     padding: 10px;
     background: fade(#fff, 90%);
+    #pins & {
+        border-top: 2px solid #fff;
+        .box-shadow(0 -1px 4px rgba(0, 0, 0, 0.1));
+    }
+    #pins &.off {
+        .box-shadow(0 0);
+        background-color: rgba(255,255,255,0);
+        border-top: 2px solid rgba(255,255,255,0);
+    }
     h2 {
         height: 40px;
         margin: 0;

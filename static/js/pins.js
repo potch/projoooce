@@ -12,7 +12,8 @@ function escape_(s) {
 
 var yesLabels = [
     'I\'m smitten',
-    '<3'
+    '<3',
+    'Heck yeah'
 ];
 
 var noLabels = [
@@ -123,6 +124,12 @@ $('#pins button').on(actEventOff, function() {
     $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, data, function() {
         showUser();
     });
+});
+
+$('#pins .scroller').bind('scroll', function() {
+    var st = $(this).scrollTop();
+    var ih = $(this).innerHeight();
+    $('#pins .menu').toggleClass('off', st + ih  >= $(this)[0].scrollHeight);
 });
 
 // Show matches!
