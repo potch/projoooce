@@ -154,6 +154,7 @@ section.right {
 }
 section:before {
   pointer-events: none;
+  opacity: 0;
   content: '';
   display: block;
   position: absolute;
@@ -250,6 +251,7 @@ section.loading:before {
   width: 100%;
   z-index: 10;
   left: 0;
+  opacity: 1 !important;
 }
 #login form {
   width: 244px;
