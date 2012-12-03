@@ -12,7 +12,7 @@ function initChat() {
     $cf.append($('<button>', {'text': '+'}));
     $('#chat-input').append($cf);
 
-    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'xyx');
+    var fb = new Firebase('https://pinterested.firebaseIO.com/chat/' + 'xyy');
 
     fb.on('child_added', function (snapshot) {
         var message = snapshot.val();
