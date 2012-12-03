@@ -1,5 +1,6 @@
 import functools
 import json
+import os
 import random
 import sys
 
@@ -15,7 +16,6 @@ except ImportError:
     import settings
 
 app = Flask(__name__)
-
 
 def jsonify(f):
     @functools.wraps(f)
@@ -177,10 +177,5 @@ app.add_url_rule('/heygirlilikeartsybakedgoodstoo/<girl>',
 
 
 if __name__ == '__main__':
-    kw = {'debug': True,
-          'host': '0.0.0.0'}
-    try:
-        kw['port'] = int(sys.argv[1])
-    except (IndexError, ValueError):
-        pass
-    app.run(**kw)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

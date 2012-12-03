@@ -1,3 +1,5 @@
+import os
+
 from redis import Redis
 
 try:
@@ -5,7 +7,11 @@ try:
 except ImportError:
     import settings
 
-if getattr(settings, 'REDIS_URL', None):
+
+redis_env = os.environ.get('REDISTOGO_URL')
+if(redis_env):
+    redis = Redis.from_url(redis_env)
+elif getattr(settings, 'REDIS_URL', None):
     redis = Redis.from_url(settings.REDIS_URL)
 else:
     redis = Redis(host=settings.REDIS_HOST,
