@@ -1,3 +1,4 @@
+dotcloud
 flask
 jinja2
 pyquery
