@@ -4,20 +4,16 @@
 
 
 .button(@color) {
-    background-color: @color;
-    padding: 9px 15px 13px;
+    padding: 11px 15px 15px;
     border: 1px solid darken(@color, 10%);
     border-radius: 5px;
     color: #fff;
     white-space: nowrap;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
     font-size: 17px;
-    box-shadow: 0 -5px darken(@color, 10%) inset, 0 2px rgba(255,255,255,0.3) inset;
+    .box-shadow(0 -3px darken(@color, 10%) inset, 0 1px rgba(255,255,255,0.3) inset);
 
-    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.0)), to(rgba(0,0,0,0.1)));
-    background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.1));
-    background-image: -moz-linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.1));
-    background-image: -webkit-linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.1));
+    .gradient-two-color(rgba(0,0,0,0), rgba(0,0,0,0.05), @color);
 
     &:active {
         background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0.0)));
@@ -188,6 +184,17 @@
     background-image:      -o-linear-gradient(@color1, @color2);
     background-image:         linear-gradient(@color1, @color2);
 }
+
+.gradient-two-color(@color1, @color2, @color3) {
+    background-color: @color3;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(@color1), to(@color2));
+    background-image: -webkit-linear-gradient(@color1, @color2);
+    background-image:    -moz-linear-gradient(@color1, @color2);
+    background-image:     -ms-linear-gradient(@color1, @color2);
+    background-image:      -o-linear-gradient(@color1, @color2);
+    background-image:         linear-gradient(@color1, @color2);
+}
+
 
 .gradient-two-color-with-image(@color1, @color2, @image) {
     background: @color2;

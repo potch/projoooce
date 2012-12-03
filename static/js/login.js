@@ -11,7 +11,7 @@ function loggedIn(user) {
     $('#login').addClass('logged-in');
     $('#whoami h2 span').text(user);
     $('#logged').text('You are ' + user + '!')
-                .append($('<a>', {'href': '/users/logout', 'text': 'Log out!'}))
+                .append($('<a>', {'href': '/users/logout', 'text': 'Log out!', 'class': 'logout'}))
                 .addClass('show');
 }
 
@@ -26,6 +26,13 @@ $('#whoami').on(actEvent, '.smiley', function(e) {
     e.preventDefault();
     var smiley = $(this);
     var which = smiley.hasClass('left') ? 0 : 1;
+
+    var smiley2 = $('#whoami .smiley').eq(1);
+    if(which === 0 && (smiley.hasClass('on') != smiley2.hasClass('on'))) {
+        // If you click the left one and the people are opposite sexes already, toggle both
+        smiley2.trigger(actEvent);
+    }
+
     if (smiley.hasClass('on')) {
         smiley.removeClass('on');
         $('.gen').eq(which).text('gal').removeClass('dude');
@@ -33,6 +40,7 @@ $('#whoami').on(actEvent, '.smiley', function(e) {
         smiley.addClass('on');
         $('.gen').eq(which).text('guy').addClass('dude');
     }
+
 });
 
 $('#whoami button').on(actEventOff, function() {
