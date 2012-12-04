@@ -29,8 +29,8 @@ button.rate {
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
 }
-button.yes:active,
-button.rate:active {
+button.yes.pressed,
+button.rate.pressed {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
@@ -61,7 +61,7 @@ button.no {
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
 }
-button.no:active {
+button.no.pressed {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
@@ -91,7 +91,7 @@ button.back {
   color: #333;
   padding: 5px 15px 4px;
 }
-button.back:active {
+button.back.pressed {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
@@ -287,7 +287,7 @@ section.loading:before {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   width: 100%;
 }
-#login form button:active {
+#login form button.pressed {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));

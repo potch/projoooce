@@ -22,15 +22,14 @@ function loggedOut() {
     showPane('login');
 }
 
-$('#whoami').on(actEvent, '.smiley', function(e) {
-    e.preventDefault();
+$('#whoami .smiley').touch(function(e) {
     var smiley = $(this);
     var which = smiley.hasClass('left') ? 0 : 1;
 
     var smiley2 = $('#whoami .smiley').eq(1);
     if(which === 0 && (smiley.hasClass('on') != smiley2.hasClass('on'))) {
         // If you click the left one and the people are opposite sexes already, toggle both
-        smiley2.trigger(actEvent);
+        smiley2.trigger('touch');
     }
 
     if (smiley.hasClass('on')) {
@@ -43,7 +42,7 @@ $('#whoami').on(actEvent, '.smiley', function(e) {
 
 });
 
-$('#whoami button').on(actEventOff, function() {
+$('#whoami button').touch(function() {
     $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
         if (r.user) {
             showPane('pins');
@@ -53,6 +52,9 @@ $('#whoami button').on(actEventOff, function() {
     });
     wait(300).then(showUser);
 });
+
+// This simulates pressing...
+$login.find('form button').touch();
 
 $login.find('form').on('submit', function(e) {
     e.preventDefault();
