@@ -114,7 +114,7 @@ function showUser() {
     });
 }
 
-$('#pins button').on(actEventOff, function() {
+$('#pins button').touch(function() {
     mortar.clear();
     $('#pins .menu').removeClass('show');
     var data = {me: localStorage.user};

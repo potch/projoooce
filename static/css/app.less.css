@@ -596,24 +596,17 @@ section.loading:before {
   -moz-transition-property: -moz-transform, transform, -webkit-transform;
   -webkit-transition-property: -moz-transform, transform, -webkit-transform;
   transition-property: -moz-transform, transform, -webkit-transform;
-  -webkit-transform: translate(0, 100%);
-  -moz-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  -o-transform: translate(0, 100%);
-  transform: translate(0, 100%);
+  -webkit-transform: translate(0, 100%) translateZ(0);
+  -moz-transform: translate(0, 100%) translateZ(0);
+  -ms-transform: translate(0, 100%) translateZ(0);
+  -o-transform: translate(0, 100%) translateZ(0);
+  transform: translate(0, 100%) translateZ(0);
 }
 #pins .menu {
   border-top: 2px solid #fff;
   -webkit-box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-}
-#pins .menu.off {
-  -webkit-box-shadow: 0 0;
-  -moz-box-shadow: 0 0;
-  box-shadow: 0 0;
-  background-color: rgba(255, 255, 255, 0);
-  border-top: 2px solid rgba(255, 255, 255, 0);
 }
 .menu h2 {
   height: 40px;
@@ -632,11 +625,11 @@ section.loading:before {
   float: right;
 }
 .menu.show {
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0) translateZ(0);
+  -moz-transform: translate(0, 0) translateZ(0);
+  -ms-transform: translate(0, 0) translateZ(0);
+  -o-transform: translate(0, 0) translateZ(0);
+  transform: translate(0, 0) translateZ(0);
 }
 #pins .scroller {
   top: 0;
