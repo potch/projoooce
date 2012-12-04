@@ -534,12 +534,14 @@ form {
     }
     input[type=text] {
         .border-radius(5px 5px 0 0);
-        border-bottom: 1px solid #ddd !important;
-        //.box-shadow(0 2px 2px #aaa inset);
+        border-bottom: 0 none !important;
+
     }
     input[type=password] {
         .border-radius(0 0 5px 5px);
         border-top: 0;
+        .box-shadow(0 1px #eee inset);
+        -webkit-appearance: none;
     }
 }
 
