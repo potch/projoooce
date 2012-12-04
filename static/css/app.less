@@ -252,7 +252,7 @@ section {
             display: none;
         }
         .logo {
-            .transform(~'scale(.9) translate(0, 5px)');
+            .transform(~'scale(.9) translate(0, 5px) translateZ(0)');
         }
         .logout {
             color: rgba(255,255,255,0.7);
@@ -367,6 +367,7 @@ section {
     position: relative;
     .transition-duration(~'.3s, .3s, .3s');
     .transition-property(~'-moz-transform, transform, -webkit-transform');
+    .transform(~'translateZ(0)');
 }
 
 .tagline {
