@@ -812,7 +812,7 @@ form input[type=password]:focus {
   height: 24px;
   position: absolute;
   right: 0;
-  top: 58px;
+  top: 56px;
   width: 109px;
   -webkit-animation: 40s linear 0s normal none infinite bgscroll;
   -moz-animation: 40s linear 0s normal none infinite bgscroll;
