@@ -1,5 +1,7 @@
 @import 'lib';
 
+@pinterested: #ae1d54;
+
 * {
     .border-box();
     -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -15,7 +17,7 @@ button {
         .button(#93c52f);
     }
     &.rate {
-        font-size: 20px;
+        width: 100%;
     }
     &.no {
         .button(#bf512e);
@@ -587,7 +589,7 @@ form {
     .luv {
         background: url(/static/img/factory.png) 50% 50% no-repeat;
         background-size: cover;
-        margin: 0 auto -250px -10px;
+        margin: 30px auto -250px -10px;
         height: 250px;
         width: 320px;
         position: relative;
@@ -607,32 +609,31 @@ form {
             height: 24px;
             position: absolute;
             right: 0;
-            top: 57px;
+            top: 58px;
             width: 109px;
             .animation(40s linear 0s normal none infinite bgscroll);
         }
     }
     h2, p {
-        text-shadow: 0 2px 1px #fff;
+        text-shadow: 0 1px 1px #fff;
         margin-top: 6px;
         margin-bottom: 6px;
     }
     h2 {
         color: #333;
-        font-size: 18px;
+        font-size: 17px;
     }
     p {
         color: #999;
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 12px;
-        padding: 0 5px;
+        padding: 0 15px;
     }
-    .potential {
-        margin-top: 180px;
-        position: relative;
-    }
-    button {
-        position: relative;
+    #potential {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 10px;
     }
 }
 
@@ -640,17 +641,18 @@ form {
     color: #aaa;
     text-shadow: 0 2px 1px #fff;
     .screen {
+        height: 100%;
         margin: 0 auto;
         text-align: center;
         position: relative;
-        top: 80px;
         max-width: 300px;
+        padding-top: 70px;
     }
 }
 
 #matches {
     .screen {
-        top: 56px;
+        padding-top: 56px;
         max-width: 100%;
     }
     .matches {
@@ -670,17 +672,19 @@ form {
 
 .top {
     .border-radius(10px 10px 0 0);
-    .box-shadow(~'0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset');
-    background: #bb3c6c url(/static/img/grain.png);
+    .box-shadow(0 0 4px #555, 0 1px 1px rgba(255, 255, 255, .2) inset, 0 -1px 0px rgba(255, 255, 255, .2) inset);
+    background: @pinterested url(/static/img/grain.png);
+    border-bottom: 1px solid @pinterested;
     color: #fff;
-    font-size: 22px;
-    text-shadow: 0px 2px 2px #333;
-    padding: 15px 0;
     position: absolute;
-    top: -18px;
     text-align: center;
     z-index: 2;
     width: 100%;
+    margin-top: 0;
+    height: 44px;
+    padding: 12px;
+    font-size: 18px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
 }
 
 .back {

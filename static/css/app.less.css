@@ -40,7 +40,7 @@ button.rate:active {
   color: rgba(255, 255, 255, 0.9);
 }
 button.rate {
-  font-size: 20px;
+  width: 100%;
 }
 button.no {
   padding: 11px 15px 15px;
@@ -403,11 +403,11 @@ section.loading:before {
   display: none;
 }
 #login.logged-in .logo {
-  -webkit-transform: scale(.9) translate(0, 5px);
-  -moz-transform: scale(.9) translate(0, 5px);
-  -ms-transform: scale(.9) translate(0, 5px);
-  -o-transform: scale(.9) translate(0, 5px);
-  transform: scale(.9) translate(0, 5px);
+  -webkit-transform: scale(.9) translate(0, 5px) translateZ(0);
+  -moz-transform: scale(.9) translate(0, 5px) translateZ(0);
+  -ms-transform: scale(.9) translate(0, 5px) translateZ(0);
+  -o-transform: scale(.9) translate(0, 5px) translateZ(0);
+  transform: scale(.9) translate(0, 5px) translateZ(0);
 }
 #login.logged-in .logout {
   color: rgba(255, 255, 255, 0.7);
@@ -536,6 +536,11 @@ section.loading:before {
   -moz-transition-property: -moz-transform, transform, -webkit-transform;
   -webkit-transition-property: -moz-transform, transform, -webkit-transform;
   transition-property: -moz-transform, transform, -webkit-transform;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .tagline {
   color: #fff;
@@ -781,7 +786,7 @@ form input[type=password]:focus {
 #factory .luv {
   background: url(/static/img/factory.png) 50% 50% no-repeat;
   background-size: cover;
-  margin: 0 auto -250px -10px;
+  margin: 30px auto -250px -10px;
   height: 250px;
   width: 320px;
   position: relative;
@@ -804,7 +809,7 @@ form input[type=password]:focus {
   height: 24px;
   position: absolute;
   right: 0;
-  top: 57px;
+  top: 58px;
   width: 109px;
   -webkit-animation: 40s linear 0s normal none infinite bgscroll;
   -moz-animation: 40s linear 0s normal none infinite bgscroll;
@@ -813,26 +818,25 @@ form input[type=password]:focus {
 }
 #factory h2,
 #factory p {
-  text-shadow: 0 2px 1px #fff;
+  text-shadow: 0 1px 1px #fff;
   margin-top: 6px;
   margin-bottom: 6px;
 }
 #factory h2 {
   color: #333;
-  font-size: 18px;
+  font-size: 17px;
 }
 #factory p {
   color: #999;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 12px;
-  padding: 0 5px;
+  padding: 0 15px;
 }
-#factory .potential {
-  margin-top: 180px;
-  position: relative;
-}
-#factory button {
-  position: relative;
+#factory #potential {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 10px;
 }
 #factory,
 #matches {
@@ -841,14 +845,15 @@ form input[type=password]:focus {
 }
 #factory .screen,
 #matches .screen {
+  height: 100%;
   margin: 0 auto;
   text-align: center;
   position: relative;
-  top: 80px;
   max-width: 300px;
+  padding-top: 70px;
 }
 #matches .screen {
-  top: 56px;
+  padding-top: 56px;
   max-width: 100%;
 }
 #matches .matches {
@@ -876,19 +881,21 @@ form input[type=password]:focus {
   -ms-border-radius: 10px 10px 0 0;
   -o-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
-  -webkit-box-shadow: 0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset;
-  -moz-box-shadow: 0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset;
-  box-shadow: 0 0 5px #333, 0 2px 1px rgba(255,255,255,.3) inset;
-  background: #bb3c6c url(/static/img/grain.png);
+  -webkit-box-shadow: 0 0 4px #555555, 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 -1px 0px rgba(255, 255, 255, 0.2) inset;
+  -moz-box-shadow: 0 0 4px #555555, 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 -1px 0px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 0 4px #555555, 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 -1px 0px rgba(255, 255, 255, 0.2) inset;
+  background: #ae1d54 url(/static/img/grain.png);
+  border-bottom: 1px solid #ae1d54;
   color: #fff;
-  font-size: 22px;
-  text-shadow: 0px 2px 2px #333;
-  padding: 15px 0;
   position: absolute;
-  top: -18px;
   text-align: center;
   z-index: 2;
   width: 100%;
+  margin-top: 0;
+  height: 44px;
+  padding: 12px;
+  font-size: 18px;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
 }
 .back {
   position: absolute;
