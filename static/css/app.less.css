@@ -476,6 +476,20 @@ section.loading:before {
   -o-transform: rotate(180deg) translateY(-2px) translateX(-1px) translateZ(0);
   transform: rotate(180deg) translateY(-2px) translateX(-1px) translateZ(0);
 }
+.smiley.pressed .face,
+.smiley.pressed .bow-in {
+  background-color: #e665d5 !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+.smiley.pressed.on .face,
+.smiley.pressed.on .bow-in {
+  background-color: #19a2db !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
 .smiley.left.on .bow-out {
   -webkit-transform: rotate(-180deg) translateY(-2px) translateX(-1px) translateZ(0);
   -moz-transform: rotate(-180deg) translateY(-2px) translateX(-1px) translateZ(0);

@@ -291,6 +291,10 @@ section {
     z-index: 1;
     display: inline-block;
     position: relative;
+
+    @pink: #ea7fdc;
+    @blue: #2cb0e7;
+
     &.right {
         float: right;
         margin-right: 10px;
@@ -302,7 +306,7 @@ section {
     &.on {
         .face, .bow-in {
             .transform(~'translateZ(0)');
-            background-color: #2cb0e7 !important;
+            background-color: @blue !important;
         }
         .bow-in {
             .transform(~'translateZ(0)');
@@ -310,6 +314,16 @@ section {
         }
         .bow-out {
             .transform(~'rotate(180deg) translateY(-2px) translateX(-1px) translateZ(0)');
+        }
+    }
+    &.pressed {
+        .face, .bow-in {
+            background-color: darken(@pink, 6%) !important;
+            .transition(~'none !important');
+        }
+        &.on .face, &.on .bow-in {
+            background-color: darken(@blue, 6%) !important;
+            .transition(~'none !important');
         }
     }
     &.left {
@@ -320,7 +334,7 @@ section {
     .face {
         background-image: url(/static/img/smiley.png);
         background-size: cover;
-        background-color: #ea7fdc;
+        background-color: @pink;
         -webkit-transition: background-color 0.6s ease-out;
         transition: background-color 0.6s ease-out;
         width: 98px;
@@ -342,7 +356,7 @@ section {
             background-size: cover;
             width: 59px;
             height: 28px;
-            background-color: #ea7fdc;
+            background-color: @pink;
             background-position: 0 -29px;
             transition: background-color 0.6s ease-out;
             -webkit-transition: background-color 0.6s ease-out;
