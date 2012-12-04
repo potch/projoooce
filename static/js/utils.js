@@ -39,7 +39,6 @@ $.fn.touch = function (f) {
         }).bind('mouseup touchend', function(e) {
             if(f) e.preventDefault();
             if($e.is(':disabled')) return;
-console.log(f, moveOff);
             if(!moveOff) {
                 $e.removeClass('pressed');
                 if(f) { return f.apply(this, arguments); }

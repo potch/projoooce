@@ -127,9 +127,10 @@ $('#pins button').touch(function() {
 });
 
 $('#pins .scroller').bind('scroll', function() {
-    var st = $(this).scrollTop();
-    var ih = $(this).innerHeight();
-    $('#pins .menu').toggleClass('off', st + ih  >= $(this)[0].scrollHeight);
+    var $this = $(this);
+    var st = $this.scrollTop();
+    var ih = $this.innerHeight();
+    $('#pins .menu').toggleClass('off', st + ih  >= $this[0].scrollHeight);
 });
 
 // Show matches!
