@@ -832,7 +832,7 @@ form input[type=password]:focus {
   margin-bottom: 12px;
   padding: 0 15px;
 }
-#factory #potential {
+#factory .potential {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -853,13 +853,16 @@ form input[type=password]:focus {
   padding-top: 70px;
 }
 #matches .screen {
-  padding-top: 56px;
+  padding-top: 43px;
   max-width: 100%;
 }
 #matches .matches {
   -webkit-box-shadow: 0 0 5px #999;
   -moz-box-shadow: 0 0 5px #999;
   box-shadow: 0 0 5px #999;
+}
+#matches .potential {
+  padding: 10px;
 }
 #matches .match {
   font-size: 16px;
