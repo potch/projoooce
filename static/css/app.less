@@ -74,7 +74,7 @@ section {
 
     &:before {
         pointer-events: none;
-        opacity: 0; 
+        opacity: 0;
         content: '';
         display: block;
         position: absolute;
@@ -152,7 +152,7 @@ section {
         left: 0;
         opacity: 1 !important;
     }
-    form {
+    form.login {
         width: 244px;
         margin: 60px auto 0;
         z-index: 2;
@@ -250,7 +250,7 @@ section {
         .screen {
             .transform(~'translate(0, 10px) translateZ(0)');
         }
-        form {
+        form.login {
             display: none;
         }
         .logo {
@@ -536,8 +536,8 @@ form {
     }
 }
 
-#login {
-    form button {
+#login form.login {
+    button {
         display: none;
         margin-top: 15px;
     }

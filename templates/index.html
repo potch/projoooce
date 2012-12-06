@@ -39,7 +39,7 @@
         <section id="login">
             <div class="screen">
                 <h1 class="logo">pinterested</h1>
-                <form action="/users/" method="post">
+                <form class="login" action="/users/" method="post">
                     <h2 class="tagline">Dating based on mutual (p)interests</h2>
                     <input type="text" name="user" placeholder="Pinterest Username" required  autocorrect="off" autocapitalize="off">
                     <input type="password" name="pass" placeholder="Password" required>
@@ -67,7 +67,11 @@
                             </div>
                         </div>
                     </div>
-                    <button class="yes">I'm ready to woo</button>
+                    <form class="woo" action="/pins">
+                        <p><input type="text" name="zip" maxlength="5"></p>
+                        <p><input type="date" name="birthday" value="12/12/12"></p>
+                        <button class="yes">I'm ready to woo</button>
+                    </form>
                 </div>
             </div>
             <div id="logged" class="menu"></div>

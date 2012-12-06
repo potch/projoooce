@@ -17,6 +17,7 @@ except ImportError:
 
 app = Flask(__name__)
 
+
 def jsonify(f):
     @functools.wraps(f)
     def wrapper(*args, **kw):
@@ -77,10 +78,14 @@ def chat():
 
 class UserAPI(MethodView):
 
+    @jsonify
     def get(self, user):
         if user:
             # Return a single user.
-            return Response()
+            return {'sex_am': 'male',
+                    'sex_want': 'female',
+                    'zip': '94040',
+                    'birthday': '1/11/91'}
         else:
             # Return a list of users.
             return Response()

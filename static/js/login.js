@@ -1,4 +1,5 @@
-var $login = $('#login');
+var $login = $('#login'),
+    $loginForm = $login.find('form.login');
 
 function toggleLogin() {
     var showButton = !!($login.find('input[name=user]').val() && $login.find('input[name=pass]').val());
@@ -42,8 +43,25 @@ $('#whoami .smiley').touch(function(e) {
 
 });
 
-$('#whoami button').touch(function() {
-    $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
+
+$.fn.serializeFlat = function() {
+    var data = {};
+    $(this).serializeArray().map(function(v) {
+        data[v.name] = v.value;
+    });
+    return data;
+};
+
+$('.woo').on('submit', function(e) {
+    var $form = $(this).closest('form');
+
+    var data = $form.serializeFlat();
+    data.exclude = localStorage.user;
+
+    localStorage.zip = data.zip;
+    localStorage.birthday = data.birthday;
+
+    $.get($form.attr('action'), data, function(r) {
         if (r.user) {
             showPane('pins');
         } else {
@@ -51,12 +69,15 @@ $('#whoami button').touch(function() {
         }
     });
     wait(300).then(showUser);
+    $form.find('button').touch();
+    e.preventDefault();
 });
 
-// This simulates pressing...
-$login.find('form button').touch();
 
-$login.find('form').on('submit', function(e) {
+// This simulates pressing...
+$loginForm.find('button').touch();
+
+$loginForm.on('submit', function(e) {
     e.preventDefault();
     var $this = $(this);
     $.post($this.attr('action'), $this.serialize(), function(data) {
@@ -74,8 +95,18 @@ $(document).on(actEvent, '#logged a', function(e) {
 $(function() {
     if (localStorage.user) {
         loggedIn(localStorage.user);
+
+        if (!localStorage.zip || !localStorage.birthday) {
+            $.get('/users/' + localStorage.user, function(data) {
+                // TODO: Update gender stuff.
+                data.sex_am;
+                data.sex_for;
+                $('input[name=zip]').val(data.zip);
+                $('input[name=birthday]').val(data.birthday);
+            });
+        }
     } else {
-        $login.find('form').addClass('show');
+        $loginForm.addClass('show');
     }
 
     setTimeout(function() {
