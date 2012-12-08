@@ -23,12 +23,17 @@ function loggedOut() {
     showPane('login');
 }
 
-$('#whoami .smiley').touch(function(e) {
+var smiley = $('#whoami .smiley');
+
+function sex() {
     var smiley = $(this);
+    var smiley2 = smiley.eq(1);
     var which = smiley.hasClass('left') ? 0 : 1;
 
-    var smiley2 = $('#whoami .smiley').eq(1);
-    if(which === 0 && (smiley.hasClass('on') != smiley2.hasClass('on'))) {
+    var am = 'gal';
+    var want = 'girl';
+
+    if (which === 0 && (smiley.hasClass('on') != smiley2.hasClass('on'))) {
         // If you click the left one and the people are opposite sexes already, toggle both
         smiley2.trigger('touch');
     }
@@ -36,13 +41,27 @@ $('#whoami .smiley').touch(function(e) {
     if (smiley.hasClass('on')) {
         smiley.removeClass('on');
         $('.gen').eq(which).text('gal').removeClass('dude');
+        if (which === 0) {
+            am = 'gal';
+        } else {
+            want = 'gal';
+        }
     } else {
         smiley.addClass('on');
         $('.gen').eq(which).text('guy').addClass('dude');
+        if (which === 0) {
+            am = 'guy';
+        } else {
+            want = 'guy';
+        }
     }
 
-});
+    $('input[name=sex_am]').val(am);
+    $('input[name=sex_want]').val(want);
+}
 
+smiley.touch(sex);
+sex();
 
 $.fn.serializeFlat = function() {
     var data = {};
@@ -56,19 +75,26 @@ $('.woo').on('submit', function(e) {
     var $form = $(this).closest('form');
 
     var data = $form.serializeFlat();
-    data.exclude = localStorage.user;
 
+    localStorage.sex_am = data.sex_am;
+    localStorage.sex_want = data.sex_want;
     localStorage.zip = data.zip;
     localStorage.birthday = data.birthday;
 
-    $.get($form.attr('action'), data, function(r) {
-        if (r.user) {
-            showPane('pins');
-        } else {
-            showPane('factory');
-        }
+    // Put sexes, location, and birthday.
+    $.ajax({type: 'put', url: '/users/' + localStorage.user, data: data}).success(function() {
+
+        // Check to see if there are any pins possible to show.
+        $.get('/pins', {me: localStorage.user}, function(r) {
+            if (r.user) {
+                showPane('pins');
+            } else {
+                showPane('factory');
+            }
+            //wait(300).then(showUser);
+        });
+
     });
-    wait(300).then(showUser);
     $form.find('button').touch();
     e.preventDefault();
 });
@@ -98,12 +124,31 @@ $(function() {
 
         if (!localStorage.zip || !localStorage.birthday) {
             $.get('/users/' + localStorage.user, function(data) {
-                // TODO: Update gender stuff.
-                data.sex_am;
-                data.sex_for;
+                localStorage.sex_am = data.sex_am;
+                localStorage.sex_for = data.sex_for;
+                localStorage.zip = data.zip;
+                localStorage.birthday = data.birthday;
+
+                // TODO: Update sex icons when value is changed.
+                $('input[name=sex_am]').val(data.sex_am);
+                $('input[name=sex_want]').val(data.sex_for);
+
                 $('input[name=zip]').val(data.zip);
                 $('input[name=birthday]').val(data.birthday);
             });
+        } else {
+            if (localStorage.sex_am) {
+                $('input[name=sex_am]').val(localStorage.sex_am);
+            }
+            if (localStorage.sex_want) {
+                $('input[name=sex_want]').val(localStorage.sex_want);
+            }
+            if (localStorage.zip) {
+                $('input[name=zip]').val(localStorage.zip);
+            }
+            if (localStorage.birthday) {
+                $('input[name=birthday]').val(localStorage.birthday);
+            }
         }
     } else {
         $loginForm.addClass('show');

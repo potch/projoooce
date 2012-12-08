@@ -94,7 +94,7 @@ function showUser() {
     $('#pins .menu').removeClass('show');
     $('#pins').addClass('loading');
     $('#prompt').hide();
-    $.get('/pins?exclude=' + (localStorage.user || ''), function(r) {
+    $.get('/pins', {me: localStorage.user || ''}, function(r) {
         if (!r.user) {
             showPane('factory');
             return;

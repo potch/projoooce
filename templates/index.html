@@ -10,6 +10,7 @@
     'pins.js',
     'app.js',
     'chat.js',
+    'https://static.firebase.com/v0/firebase.js',
 ] -%}
 
 <!DOCTYPE html>
@@ -67,9 +68,11 @@
                             </div>
                         </div>
                     </div>
-                    <form class="woo" action="/pins">
-                        <p><input type="text" name="zip" maxlength="5"></p>
-                        <p><input type="date" name="birthday" value="12/12/12"></p>
+                    <form class="woo">
+                        <input type="hidden" name="sex_am">
+                        <input type="hidden" name="sex_want">
+                        <p><input type="text" name="zip" maxlength="5" required></p>
+                        <p><input type="date" name="birthday" required></p>
                         <button class="yes">I'm ready to woo</button>
                     </form>
                 </div>
@@ -136,7 +139,6 @@
 
     </div>
 
-    <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
     {%- for script in JS %}
     <script type="text/javascript" src="{{ script if script.startswith(('//', 'http')) else url_for('static', filename='js/' + script) }}"></script>
     {%- endfor %}
