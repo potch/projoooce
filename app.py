@@ -64,8 +64,8 @@ def pins(user=None):
         except ValueError:
             pass
         else:
-            geezers = redis.zrangebyscore('ages', '-inf', age - 11)
-            premies = redis.zrangebyscore('ages', age + 11, '+inf')
+            geezers = redis.zrangebyscore('birthyears', '-inf', age - 11)
+            premies = redis.zrangebyscore('birthyears', age + 11, '+inf')
             users = users - set(geezers) - set(premies)
 
         if users:
@@ -120,7 +120,7 @@ class UserAPI(MethodView):
             # Return data for a single user.
             return get_data(user)
         else:
-            # Return dataa for all users.
+            # Return data for all users.
             data = {}
             for user in redis.smembers('users'):
                 data[user] = get_data(user)
@@ -142,7 +142,21 @@ class UserAPI(MethodView):
 
     def delete(self, user):
         """Delete a single user."""
+
         redis.srem('users', user)
+
+        sets = ['sex_am', 'sex_want', 'zip', 'zipshort', 'birthday', 'birthyear']
+        for key in sets:
+            value = redis.get('users:%s:%s' % (user, key))
+            if value is not None:
+                redis.srem('%s:%s' % (key, value), user)
+
+        keys = ['sex_am', 'sex_want', 'ugos', 'zip', 'zipshort', 'birthday', 'birthyears']
+        for key in keys:
+            redis.delete('users:%s:%s' % (user, key))
+
+        redis.zrem('birthyears', user)
+
         return Response()
 
     def put(self, user):
@@ -150,17 +164,33 @@ class UserAPI(MethodView):
 
         sex_am = request.form.get('sex_am')
         if sex_am in ('guy', 'gal'):
+            previous = redis.get('users:%s:sex_am' % user)
+            if previous and previous != sex_am:
+                redis.srem('sex_am:%s' % previous, user)
+
             redis.set('users:%s:sex_am' % user, sex_am)
             redis.sadd('sex_am:%s' % sex_am, user)
 
         sex_want = request.form.get('sex_want')
         if sex_want in ('guy', 'gal'):
+            previous = redis.get('users:%s:sex_want' % user)
+            if previous and previous != sex_want:
+                redis.srem('sex_want:%s' % previous, user)
+
             redis.set('users:%s:sex_want' % user, sex_want)
             redis.sadd('sex_want:%s' % sex_want, user)
 
         zipcode = request.form.get('zip', '')
         zipshort = zipcode[:2]
+
+        previous = redis.get('users:%s:zip' % user)
+        if previous and previous != zipcode:
+            redis.srem('zip:%s' % previous, user)
         redis.set('users:%s:zip' % user, zipcode)
+
+        previous = redis.get('users:%s:zipshort' % user)
+        if previous and previous != zipshort:
+            redis.srem('zipshort:%s' % previous, user)
         redis.set('users:%s:zipshort' % user, zipshort)
 
         redis.sadd('zip:%s' % zipcode, user)
@@ -168,13 +198,19 @@ class UserAPI(MethodView):
 
         birthday = request.form.get('birthday', '')
         birthyear = birthday.split('-')[0]
+
+        previous = redis.get('users:%s:birthyear' % user)
+        if previous and previous != birthyear:
+            redis.srem('birthyears:%s' % previous, user)
+
         redis.set('users:%s:birthday' % user, birthday)
         redis.set('users:%s:birthyear' % user, birthyear)
 
+        redis.sadd('users:%s:birthday' % birthday, user)
         redis.sadd('users:%s:birthyear' % birthyear, user)
 
         # Birthyear is the score.
-        redis.zadd('ages', user, birthyear)
+        redis.zadd('birthyears', user, birthyear)
 
         return Response()
 
