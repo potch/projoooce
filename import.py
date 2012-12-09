@@ -28,7 +28,7 @@ if __name__ == '__main__':
     except (IndexError, ValueError):
         pass
 
-    redis.flushall()
+    redis.flushdb()
     for user in users:
         redis.sadd('users', user.strip())
         download_pins(user)
