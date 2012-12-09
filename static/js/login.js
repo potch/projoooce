@@ -1,3 +1,5 @@
+var pinsQueue = [];
+
 var $login = $('#login'),
     $loginForm = $login.find('form.login');
 
@@ -78,12 +80,15 @@ $('.woo').on('submit', function(e) {
 
         // Check to see if there are any pins possible to show.
         $.get('/pins', {me: localStorage.user}, function(r) {
-            if (r.user) {
+            if (r.length) {
+                pinsQueue = r;
                 showPane('pins');
             } else {
+                // TODO: Maybe tell the user to chill out if there
+                // are still no more matches.
                 showPane('factory');
             }
-            //wait(300).then(showUser);
+            wait(300).then(showUsers);
         });
 
     });

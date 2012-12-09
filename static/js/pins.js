@@ -90,28 +90,38 @@ function getRandom(list) {
     return list[~~(Math.random() * list.length)];
 }
 
-function showUser() {
+function showUsers(force) {
     $('#pins .menu').removeClass('show');
     $('#pins').addClass('loading');
     $('#prompt').hide();
-    $.get('/pins', {me: localStorage.user || ''}, function(r) {
-        if (!r.user) {
-            showPane('factory');
-            return;
-        }
-        $('.remaining-num').text(r.remaining);
-        $('.remaining-plural').toggle(r.remaining !== 1);
-        $('.remaining').addClass('show');
-        r.pins.forEach(function(i) {
-            loadImg(i).then(mortar.append);
+    if (!pinsQueue.length || force) {
+        $.get('/pins', {me: localStorage.user || ''}, function(r) {
+            if (!r.length) {
+                showPane('factory');
+                return;
+            }
+            pinsQueue = r;
+            nextUser();
         });
-        currentUser = r.user;
-        $('#pins .yes').text(getRandom(yesLabels));
-        $('#pins .no').text(getRandom(noLabels));
-        $('#pins .menu').addClass('show');
-        $('#pins').removeClass('loading');
-        $('#prompt').show();
+    } else {
+        nextUser();
+    }
+}
+
+function nextUser() {
+    user = pinsQueue.shift(0);
+    $('.remaining-num').text(user.remaining);
+    $('.remaining-plural').toggle(user.remaining !== 1);
+    $('.remaining').addClass('show');
+    user.pins.forEach(function(i) {
+        loadImg(i).then(mortar.append);
     });
+    currentUser = user.user;
+    $('#pins .yes').text(getRandom(yesLabels));
+    $('#pins .no').text(getRandom(noLabels));
+    $('#pins .menu').addClass('show');
+    $('#pins').removeClass('loading');
+    $('#prompt').show();
 }
 
 $('#pins button').touch(function() {
@@ -122,8 +132,12 @@ $('#pins button').touch(function() {
         data.yes = 1;
     }
     $.post('/heygirlilikeartsybakedgoodstoo/' + currentUser, data, function() {
-        showUser();
+        showUsers();
     });
+});
+
+$('.rate').touch(function() {
+    showUsers(true);
 });
 
 $('#pins .scroller').bind('scroll', function() {
@@ -133,8 +147,8 @@ $('#pins .scroller').bind('scroll', function() {
     $('#pins .menu').toggleClass('off', st + ih  >= $this[0].scrollHeight);
 });
 
-// Show matches!
-$('#factory .potential, #factory .luv').on('click', function() {
+// TODO: Actually show matches organically (issue #10).
+$('#factory .potential p, #factory .luv').on('click', function() {
     showPane('matches');
 });
 

@@ -33,7 +33,7 @@ def jsonify(f):
 @app.route('/pins')
 @app.route('/pins/<user>')
 @jsonify
-def pins(user=None):
+def pins(user=None, limit=5):
     user = None
     users = set()
 
@@ -71,15 +71,17 @@ def pins(user=None):
         if users:
             users = list(users)
             random.shuffle(users)
-            user = users[0]
+            users = users[:limit]
 
-    print user  # Nice to know.
-    if user:
+    data = []
+    remaining = len(users)
+    for user in users:
         pins = get_pins(user)
-        pins['remaining'] = len(users)
-        return pins
-    else:
-        return {}
+        pins['remaining'] = remaining
+        remaining -= 1
+        data.append(pins)
+        print user  # Nice to know.
+    return data
 
 
 def home():
@@ -145,7 +147,7 @@ class UserAPI(MethodView):
 
         redis.srem('users', user)
 
-        sets = ['sex_am', 'sex_want', 'zip', 'zipshort', 'birthday', 'birthyear']
+        sets = ['sex_am', 'sex_want', 'zip', 'zipshort', 'birthday', 'birthyear', 'pins']
         for key in sets:
             value = redis.get('users:%s:%s' % (user, key))
             if value is not None:
