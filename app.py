@@ -30,32 +30,45 @@ def jsonify(f):
     return wrapper
 
 
-@app.route('/pins', defaults={'shuffle': True})
+@app.route('/pins')
 @app.route('/pins/<user>')
 @jsonify
-def pins(user=None, shuffle=False):
+def pins(user=None):
     user = None
-    if shuffle:
-        me = request.values.get('me')
-        if me:
-            users = redis.sdiff('users', 'users:%s:ugos' % me)
+    users = set()
+
+    me = request.values.get('me')
+    if me:
+        users = redis.sdiff('users', 'users:%s:ugos' % me)
+    else:
+        users = redis.smembers('users')
+
+    if users:
+        # Filter by location.
+        zipshort = redis.get('users:%s:zipshort' % me)
+        users = users & redis.smembers('zipshort:%s' % zipshort)
+
+        # Filter by sex. Yes, please.
+
+        # This person wants my sex.
+        sex_am = redis.get('users:%s:sex_am' % me)
+        users = users & redis.smembers('sex_want:%s' % sex_am)
+
+        # I want this person's sex.
+        sex_want = redis.get('users:%s:sex_want' % me)
+        users = users & redis.smembers('sex_am:%s' % sex_want)
+
+        # Filter by users within my age range (+/- 10 years).
+        try:
+            age = int(redis.get('users:%s:birthyear' % me))
+        except ValueError:
+            pass
         else:
-            users = redis.smembers('users')
+            geezers = redis.zrangebyscore('ages', '-inf', age - 11)
+            premies = redis.zrangebyscore('ages', age + 11, '+inf')
+            users = users - set(geezers) - set(premies)
 
         if users:
-            # TODO: Filter by location.
-            # TODO: Filter by sex.
-
-            # Filter by users within my age range (+/- 10 years).
-            try:
-                age = int(redis.get('users:%s:birthyear' % me))
-            except ValueError:
-                pass
-            else:
-                geezers = redis.zrangebyscore('ages', '-inf', age - 11)
-                premies = redis.zrangebyscore('ages', '-inf', age + 11)
-                users = users - set(geezers) - set(premies)
-
             users = list(users)
             random.shuffle(users)
             user = users[0]
@@ -104,12 +117,12 @@ class UserAPI(MethodView):
             return data
 
         if user:
-            # Return a single user.
-            get_data(user)
+            # Return data for a single user.
+            return get_data(user)
         else:
-            users = redis.smembers('users') or set()
+            # Return dataa for all users.
             data = {}
-            for user in users:
+            for user in redis.smembers('users'):
                 data[user] = get_data(user)
             return data
 
@@ -129,6 +142,7 @@ class UserAPI(MethodView):
 
     def delete(self, user):
         """Delete a single user."""
+        redis.srem('users', user)
         return Response()
 
     def put(self, user):
@@ -145,12 +159,12 @@ class UserAPI(MethodView):
             redis.sadd('sex_want:%s' % sex_want, user)
 
         zipcode = request.form.get('zip', '')
+        zipshort = zipcode[:2]
         redis.set('users:%s:zip' % user, zipcode)
-        redis.set('users:%s:zip' % user, zipcode)
+        redis.set('users:%s:zipshort' % user, zipshort)
 
-        zipcode_short = zipcode[:2]
-        redis.sadd('users:%s:zip' % zipcode_short, user)
-        redis.sadd('users:%s:zipnearby' % zipcode_short, user)
+        redis.sadd('zip:%s' % zipcode, user)
+        redis.sadd('zipshort:%s' % zipshort, user)
 
         birthday = request.form.get('birthday', '')
         birthyear = birthday.split('-')[0]

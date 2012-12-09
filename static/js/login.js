@@ -30,8 +30,7 @@ function sex() {
     var smiley2 = smiley.eq(1);
     var which = smiley.hasClass('left') ? 0 : 1;
 
-    var am = 'gal';
-    var want = 'girl';
+    var $gender = $('.gender');
 
     if (which === 0 && (smiley.hasClass('on') != smiley2.hasClass('on'))) {
         // If you click the left one and the people are opposite sexes already, toggle both
@@ -41,20 +40,13 @@ function sex() {
     if (smiley.hasClass('on')) {
         smiley.removeClass('on');
         $('.gen').eq(which).text('gal').removeClass('dude');
-        if (which === 0) {
-            am = 'gal';
-        } else {
-            want = 'gal';
-        }
     } else {
         smiley.addClass('on');
         $('.gen').eq(which).text('guy').addClass('dude');
-        if (which === 0) {
-            am = 'guy';
-        } else {
-            want = 'guy';
-        }
     }
+
+    var am = $gender.find('.am').text();
+    var want = $gender.find('.want').text();
 
     $('input[name=sex_am]').val(am);
     $('input[name=sex_want]').val(want);
