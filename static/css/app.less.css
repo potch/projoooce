@@ -1017,6 +1017,9 @@ form input[type=password]:focus {
 input[placeholder]:-moz-placeholder:focus {
   color: transparent !important;
 }
+input[placeholder]:focus::-moz-placeholder {
+  color: transparent !important;
+}
 input[placeholder]:focus::-webkit-input-placeholder {
   color: transparent !important;
 }
